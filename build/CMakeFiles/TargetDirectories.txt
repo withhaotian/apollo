@@ -1,0 +1,5 @@
+/mnt/h/workSpace/c_cpp_projects/apollo/build/CMakeFiles/rebuild_cache.dir
+/mnt/h/workSpace/c_cpp_projects/apollo/build/CMakeFiles/test_config.dir
+/mnt/h/workSpace/c_cpp_projects/apollo/build/CMakeFiles/edit_cache.dir
+/mnt/h/workSpace/c_cpp_projects/apollo/build/CMakeFiles/test.dir
+/mnt/h/workSpace/c_cpp_projects/apollo/build/CMakeFiles/apollo.dir
