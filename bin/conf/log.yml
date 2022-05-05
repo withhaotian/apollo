@@ -4,13 +4,13 @@ logs:
       appenders:
           - type: FileLogAppender
             level: debug
-            file: tests/root.txt
+            file: apollo/tests/root.txt
           - type: StdoutLogAppender
     - name: system
       level: warn
       appenders:
           - type: FileLogAppender
-            file: tests/system.txt
+            file: apollo/tests/system.txt
           - type: StdoutLogAppender
             level: fatal
 
