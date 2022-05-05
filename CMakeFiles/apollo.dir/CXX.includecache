@@ -6,18 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/mnt/h/workSpace/c_cpp_projects/apollo/src/config.cc
-config.h
-/mnt/h/workSpace/c_cpp_projects/apollo/src/config.h
-util.h
-/mnt/h/workSpace/c_cpp_projects/apollo/src/util.h
-sys/types.h
--
-sys/stat.h
--
-unistd.h
--
-
 /mnt/h/workSpace/c_cpp_projects/apollo/src/config.h
 memory
 -
@@ -43,6 +31,26 @@ log.h
 /mnt/h/workSpace/c_cpp_projects/apollo/src/log.h
 util.h
 /mnt/h/workSpace/c_cpp_projects/apollo/src/util.h
+
+/mnt/h/workSpace/c_cpp_projects/apollo/src/log.cc
+map
+-
+iostream
+-
+functional
+-
+time.h
+-
+string.h
+-
+yaml-cpp/yaml.h
+-
+ctype.h
+-
+log.h
+/mnt/h/workSpace/c_cpp_projects/apollo/src/log.h
+config.h
+/mnt/h/workSpace/c_cpp_projects/apollo/src/config.h
 
 /mnt/h/workSpace/c_cpp_projects/apollo/src/log.h
 string

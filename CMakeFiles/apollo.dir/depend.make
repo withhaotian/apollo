@@ -7,6 +7,7 @@ CMakeFiles/apollo.dir/src/config.cc.o: src/log.h
 CMakeFiles/apollo.dir/src/config.cc.o: src/singleton.h
 CMakeFiles/apollo.dir/src/config.cc.o: src/util.h
 
+CMakeFiles/apollo.dir/src/log.cc.o: src/config.h
 CMakeFiles/apollo.dir/src/log.cc.o: src/log.cc
 CMakeFiles/apollo.dir/src/log.cc.o: src/log.h
 CMakeFiles/apollo.dir/src/log.cc.o: src/singleton.h

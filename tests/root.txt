@@ -1,0 +1,3 @@
+2022-05-05 21:05:35	18368	THREAD_APOLLO	0	[INFO]	[root]	src/log.cc:800	********** x.level ***********: 0
+2022-05-05 21:05:35	18368	THREAD_APOLLO	0	[INFO]	[root]	src/log.cc:800	********** x.level ***********: 0
+2022-05-05 21:05:35	18368	THREAD_APOLLO	0	[INFO]	[root]	src/log.cc:800	********** x.level ***********: 5

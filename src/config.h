@@ -61,7 +61,7 @@ public:
 };
 
 /**
- * @brief 类型转换模板类片特化(YAML String 转换成 std::vector<T>)
+ *  类型转换模板类偏特化(YAML String 转换成 std::vector<T>)
  */
 template<class T>
 class LexicalCast<std::string, std::vector<T> > {
@@ -80,7 +80,7 @@ public:
 };
 
 /**
- * @brief 类型转换模板类片特化(std::vector<T> 转换成 YAML String)
+ * 类型转换模板类偏特化(std::vector<T> 转换成 YAML String)
  */
 template<class T>
 class LexicalCast<std::vector<T>, std::string> {
@@ -97,7 +97,7 @@ public:
 };
 
 /**
- * @brief 类型转换模板类片特化(YAML String 转换成 std::list<T>)
+ * 类型转换模板类偏特化(YAML String 转换成 std::list<T>)
  */
 template<class T>
 class LexicalCast<std::string, std::list<T> > {
@@ -116,7 +116,7 @@ public:
 };
 
 /**
- * @brief 类型转换模板类片特化(std::list<T> 转换成 YAML String)
+ * 类型转换模板类偏特化(std::list<T> 转换成 YAML String)
  */
 template<class T>
 class LexicalCast<std::list<T>, std::string> {
@@ -133,7 +133,7 @@ public:
 };
 
 /**
- * @brief 类型转换模板类片特化(YAML String 转换成 std::set<T>)
+ * 类型转换模板类偏特化(YAML String 转换成 std::set<T>)
  */
 template<class T>
 class LexicalCast<std::string, std::set<T> > {
@@ -152,7 +152,7 @@ public:
 };
 
 /**
- * @brief 类型转换模板类片特化(std::set<T> 转换成 YAML String)
+ * 类型转换模板类偏特化(std::set<T> 转换成 YAML String)
  */
 template<class T>
 class LexicalCast<std::set<T>, std::string> {
@@ -169,7 +169,7 @@ public:
 };
 
 /**
- * @brief 类型转换模板类片特化(YAML String 转换成 std::unordered_set<T>)
+ * 类型转换模板类偏特化(YAML String 转换成 std::unordered_set<T>)
  */
 template<class T>
 class LexicalCast<std::string, std::unordered_set<T> > {
@@ -188,7 +188,7 @@ public:
 };
 
 /**
- * @brief 类型转换模板类片特化(std::unordered_set<T> 转换成 YAML String)
+ * 类型转换模板类偏特化(std::unordered_set<T> 转换成 YAML String)
  */
 template<class T>
 class LexicalCast<std::unordered_set<T>, std::string> {
@@ -205,7 +205,7 @@ public:
 };
 
 /**
- * @brief 类型转换模板类片特化(YAML String 转换成 std::map<std::string, T>)
+ * 类型转换模板类偏特化(YAML String 转换成 std::map<std::string, T>)
  */
 template<class T>
 class LexicalCast<std::string, std::map<std::string, T> > {
@@ -226,7 +226,7 @@ public:
 };
 
 /**
- * @brief 类型转换模板类片特化(std::map<std::string, T> 转换成 YAML String)
+ * 类型转换模板类偏特化(std::map<std::string, T> 转换成 YAML String)
  */
 template<class T>
 class LexicalCast<std::map<std::string, T>, std::string> {
@@ -243,7 +243,7 @@ public:
 };
 
 /**
- * @brief 类型转换模板类片特化(YAML String 转换成 std::unordered_map<std::string, T>)
+ * 类型转换模板类偏特化(YAML String 转换成 std::unordered_map<std::string, T>)
  */
 template<class T>
 class LexicalCast<std::string, std::unordered_map<std::string, T> > {
@@ -264,7 +264,7 @@ public:
 };
 
 /**
- * @brief 类型转换模板类片特化(std::unordered_map<std::string, T> 转换成 YAML String)
+ * 类型转换模板类偏特化(std::unordered_map<std::string, T> 转换成 YAML String)
  */
 template<class T>
 class LexicalCast<std::unordered_map<std::string, T>, std::string> {
@@ -318,7 +318,6 @@ public:
     // 从string获得参数值
     bool fromString(const std::string& val) override {
         try {
-            // m_val = boost::lexical_cast<T>(val);
             setValue(FromStr()(val));
         } catch(const std::exception& e) {
             APOLLO_LOG_ERROR(APOLLO_LOG_ROOT()) << "ConfigVar::fromString EXCEPTION "
@@ -346,10 +345,9 @@ public:
     // 获取T的类型名
     std::string getTypeName() const override {return typeid(T).name();}
     
-    // 增加/删除监听器
-    
+    // 增加/删除监听器 
     uint64_t addLisiner(const on_change_cb& cb) {
-        static uint64_t s_key_id = 0;
+        static uint64_t s_key_id = 0;  // 唯一键
         ++s_key_id;
 
         m_cbs[s_key_id] = cb;
@@ -375,22 +373,22 @@ private:
 /*
     ConfigVar的管理类
     提供方法创建/管理ConfigVar类
-*/ class Config {
+*/ 
+class Config {
 public:
     typedef std::unordered_map<std::string, ConfigVarBase::ptr> ConfigVarMap;   // 多态
 
     /**
         获取/创建配置参数
-        @param 配置参数名称
-        @param 参数值
-        @param 参数描述
         如果找到配置项，则返回配置项，否则创建
     */
     template<class T>
     static typename ConfigVar<T>::ptr  Lookup(const std::string& name, 
             const T& default_val, const std::string& description) {
-        auto it = GetDatas().find(name);
-
+         // 采用静态方法获取静态成员而不采用直接定义静态成员s_datas的目的在于
+         // 防止s_datas的初始化在Lookup之前（两个静态变量没法得知哪个先被初始化）
+         // 从而调用一个未初始化的静态变量
+        auto it = GetDatas().find(name);   
         if(it != GetDatas().end()) {
             // 如果转换失败，返回0
             auto tmp = std::dynamic_pointer_cast<ConfigVar<T>> (it->second);
@@ -421,7 +419,6 @@ public:
    
     /**
      * 查找配置参数,返回配置参数的基类
-     * @param 配置参数名称
      */
     static ConfigVarBase::ptr LookupBase(const std::string& name);
 
@@ -439,7 +436,6 @@ private:
     }
 
 };
-
 
 }
 #endif  // CONFIG_H

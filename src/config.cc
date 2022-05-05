@@ -8,7 +8,7 @@
 
 namespace apollo {
 
-static apollo::Logger::ptr g_logger = APOLLO_LOG_NAME("system");
+static apollo::Logger::ptr g_logger = APOLLO_LOG_NAME("system");    // 生成一个名为system的全局logger
 
 // 查找配置项
 ConfigVarBase::ptr Config::LookupBase(const std::string& name) {
@@ -16,15 +16,11 @@ ConfigVarBase::ptr Config::LookupBase(const std::string& name) {
     return it == GetDatas().end() ? nullptr : it->second;
 }
 
-//"A.B", 10
-//A:
-//  B: 10
-//  C: str
 /* 解析出所有的yaml node */
 static void ListAllMember(const std::string& prefix,
                           const YAML::Node& node,
                           std::list<std::pair<std::string, const YAML::Node> >& output) {
-    if(prefix.find_first_not_of("abcdefghikjlmnopqrstuvwxyz._0123456789")
+    if(prefix.find_first_not_of("abcdefghikjlmnopqrstuvwxyz._0123456789")   // 默认以字母、'.'、下划线数字开头
             != std::string::npos) {
         APOLLO_LOG_ERROR(g_logger) << "CONFIG INVALID NAME " << prefix << " : " << node;
         return;

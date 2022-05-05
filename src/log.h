@@ -16,7 +16,7 @@
 // 使用流式方式将日志级别level的日志写入到logger
 #define APOLLO_LOG_LEVEL(logger, level) \
     if(logger->getLevel() <= level) \
-        std::cout << " ---- call APOLLO_LOG_LEVEL-------" << std::endl, apollo::LogEventWrap(apollo::LogEvent::ptr(new apollo::LogEvent(logger, level, \
+        apollo::LogEventWrap(apollo::LogEvent::ptr(new apollo::LogEvent(logger, level, \
                         __FILE__, __LINE__, 0, apollo::GetThreadId(),\
                 apollo::GetFiberId(), time(0), "THREAD_APOLLO"))).getSS()
 
@@ -57,7 +57,7 @@ public:
      */
     enum Level {
         /// 未知级别
-        UNKNOW = 0,
+        UNKNOWN = 0,
         /// DEBUG 级别
         DEBUG = 1,
         /// INFO 级别
@@ -333,7 +333,7 @@ public:
     /**
      *  将日志输出目标的配置转成YAML String
      */
-    // virtual std::string toYamlString() = 0;
+    virtual std::string toYamlString() = 0;
 
     /**
      *  更改日志格式器
@@ -464,7 +464,7 @@ public:
     /**
      *  将日志器的配置转成YAML String
      */
-    // std::string toYamlString();
+    std::string toYamlString();
 private:
     /// 日志名称
     std::string m_name;
@@ -483,7 +483,7 @@ class StdoutLogAppender : public LogAppender {
 public:
     typedef std::shared_ptr<StdoutLogAppender> ptr;
     void log(Logger::ptr logger, LogLevel::Level level, LogEvent::ptr event) override;
-    // std::string toYamlString() override;
+    std::string toYamlString() override;
 };
 
 /**
@@ -494,7 +494,7 @@ public:
     typedef std::shared_ptr<FileLogAppender> ptr;
     FileLogAppender(const std::string& filename);
     void log(Logger::ptr logger, LogLevel::Level level, LogEvent::ptr event) override;
-    // std::string toYamlString() override;
+    std::string toYamlString() override;
 
     /**
      *  重新打开日志文件
@@ -539,7 +539,7 @@ public:
     /**
      *  将所有的日志器配置转成YAML String
      */
-    // std::string toYamlString();
+    std::string toYamlString();
 private:
     /// 日志器容器
     std::map<std::string, Logger::ptr> m_loggers;

@@ -186,16 +186,30 @@ void test_class() {
                     << " | new val = " << new_val.toString() << "|";
             });
 
-    YAML::Node root = YAML::LoadFile("/mnt/h/workSpace/c_cpp_projects/apollo/bin/conf/log.yml");
+    YAML::Node root = YAML::LoadFile("/mnt/h/workSpace/c_cpp_projects/apollo/bin/conf/test.yml");
     apollo::Config::LoadFromYaml(root);
 
     APOLLO_LOG_INFO(APOLLO_LOG_ROOT()) << "after: " << g_person->toString();
 }
 
+void test_log() {
+    static apollo::Logger::ptr sys_log = APOLLO_LOG_NAME("system");
+    
+    std::cout << "============= before ==============" << std::endl;
+    std::cout << apollo::LoggerMgr::GetInstance()->toYamlString() << std::endl;
+
+    YAML::Node root = YAML::LoadFile("/mnt/h/workSpace/c_cpp_projects/apollo/bin/conf/log.yml");
+    apollo::Config::LoadFromYaml(root);
+
+    std::cout << "============= after==============" << std::endl;
+    std::cout << apollo::LoggerMgr::GetInstance()->toYamlString() << std::endl;
+}
+
 int main(int argc, char** argv) {
     /* test_yaml(); */
     /* test_config(); */
-    test_class();
+    /* test_class(); */
+    test_log();
 
     return 0;
 }
