@@ -56,17 +56,17 @@ public:
      *  日志级别枚举
      */
     enum Level {
-        /// 未知级别
+        // 未知级别
         UNKNOWN = 0,
-        /// DEBUG 级别
+        // DEBUG 级别
         DEBUG = 1,
-        /// INFO 级别
+        // INFO 级别
         INFO = 2,
-        /// WARN 级别
+        // WARN 级别
         WARN = 3,
-        /// ERROR 级别
+        // ERROR 级别
         ERROR = 4,
-        /// FATAL 级别
+        // FATAL 级别
         FATAL = 5
     };
 
@@ -171,25 +171,25 @@ public:
      */
     void format(const char* fmt, va_list al);
 private:
-    /// 文件名
+    // 文件名
     const char* m_file = nullptr;
-    /// 行号
+    // 行号
     int32_t m_line = 0;
-    /// 程序启动开始到现在的毫秒数
+    // 程序启动开始到现在的毫秒数
     uint32_t m_elapse = 0;
-    /// 线程ID
+    // 线程ID
     uint32_t m_threadId = 0;
-    /// 协程ID
+    // 协程ID
     uint32_t m_fiberId = 0;
-    /// 时间戳
+    // 时间戳
     uint64_t m_time = 0;
-    /// 线程名称
+    // 线程名称
     std::string m_threadName;
-    /// 日志内容流
+    // 日志内容流
     std::stringstream m_ss;
-    /// 日志器
+    // 日志器
     std::shared_ptr<Logger> m_logger;
-    /// 日志等级
+    // 日志等级
     LogLevel::Level m_level;
 };
 
@@ -300,11 +300,11 @@ public:
      */
     const std::string getPattern() const { return m_pattern;}
 private:
-    /// 日志格式模板
+    // 日志格式模板
     std::string m_pattern;
-    /// 日志格式解析后格式
+    // 日志格式解析后格式
     std::vector<FormatItem::ptr> m_items;
-    /// 是否有错误
+    // 是否有错误
     bool m_error = false;
 
 };
@@ -355,11 +355,11 @@ public:
      */
     void setLevel(LogLevel::Level val) { m_level = val;}
 protected:
-    /// 日志级别
+    // 日志级别
     LogLevel::Level m_level = LogLevel::DEBUG;
-    /// 是否有自己的日志格式器
+    // 是否有自己的日志格式器
     bool m_hasFormatter = false;
-    /// 日志格式器
+    // 日志格式器
     LogFormatter::ptr m_formatter;
 };
 
@@ -466,15 +466,15 @@ public:
      */
     std::string toYamlString();
 private:
-    /// 日志名称
+    // 日志名称
     std::string m_name;
-    /// 日志级别
+    // 日志级别
     LogLevel::Level m_level;
-    /// 日志目标集合
+    // 日志输出器集合
     std::list<LogAppender::ptr> m_appenders;
-    /// 日志格式器
+    // 日志格式器
     LogFormatter::ptr m_formatter;
-    /// 主日志器
+    // 主日志器
     Logger::ptr m_root;
 };
 
@@ -502,11 +502,11 @@ public:
      */
     bool reopen();
 private:
-    /// 文件路径
+    // 文件路径
     std::string m_filename;
-    /// 文件流
+    // 文件流
     std::ofstream m_filestream;
-    /// 上次重新打开时间
+    // 上次重新打开时间
     uint64_t m_lastTime = 0;
 };
 
@@ -522,7 +522,6 @@ public:
 
     /**
      *  获取日志器
-     * @param[in] name 日志器名称
      */
     Logger::ptr getLogger(const std::string& name);
 
@@ -541,13 +540,13 @@ public:
      */
     std::string toYamlString();
 private:
-    /// 日志器容器
+    // 日志器容器
     std::map<std::string, Logger::ptr> m_loggers;
-    /// 主日志器
+    // 主日志器
     Logger::ptr m_root;
 };
 
-/// 日志器管理类单例模式
+// 日志器管理类单例模式
 typedef apollo::Singleton<LoggerManager> LoggerMgr;
 }
 
