@@ -4,14 +4,28 @@
 CMakeFiles/apollo.dir/src/config.cc.o: src/config.cc
 CMakeFiles/apollo.dir/src/config.cc.o: src/config.h
 CMakeFiles/apollo.dir/src/config.cc.o: src/log.h
+CMakeFiles/apollo.dir/src/config.cc.o: src/mutex.h
+CMakeFiles/apollo.dir/src/config.cc.o: src/noncopyable.h
 CMakeFiles/apollo.dir/src/config.cc.o: src/singleton.h
+CMakeFiles/apollo.dir/src/config.cc.o: src/thread.h
 CMakeFiles/apollo.dir/src/config.cc.o: src/util.h
 
 CMakeFiles/apollo.dir/src/log.cc.o: src/config.h
 CMakeFiles/apollo.dir/src/log.cc.o: src/log.cc
 CMakeFiles/apollo.dir/src/log.cc.o: src/log.h
+CMakeFiles/apollo.dir/src/log.cc.o: src/mutex.h
+CMakeFiles/apollo.dir/src/log.cc.o: src/noncopyable.h
 CMakeFiles/apollo.dir/src/log.cc.o: src/singleton.h
+CMakeFiles/apollo.dir/src/log.cc.o: src/thread.h
 CMakeFiles/apollo.dir/src/log.cc.o: src/util.h
+
+CMakeFiles/apollo.dir/src/thread.cc.o: src/log.h
+CMakeFiles/apollo.dir/src/thread.cc.o: src/mutex.h
+CMakeFiles/apollo.dir/src/thread.cc.o: src/noncopyable.h
+CMakeFiles/apollo.dir/src/thread.cc.o: src/singleton.h
+CMakeFiles/apollo.dir/src/thread.cc.o: src/thread.cc
+CMakeFiles/apollo.dir/src/thread.cc.o: src/thread.h
+CMakeFiles/apollo.dir/src/thread.cc.o: src/util.h
 
 CMakeFiles/apollo.dir/src/util.cc.o: src/util.cc
 CMakeFiles/apollo.dir/src/util.cc.o: src/util.h

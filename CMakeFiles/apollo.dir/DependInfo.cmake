@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/mnt/h/workSpace/c_cpp_projects/apollo/src/config.cc" "/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles/apollo.dir/src/config.cc.o"
   "/mnt/h/workSpace/c_cpp_projects/apollo/src/log.cc" "/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles/apollo.dir/src/log.cc.o"
+  "/mnt/h/workSpace/c_cpp_projects/apollo/src/thread.cc" "/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles/apollo.dir/src/thread.cc.o"
   "/mnt/h/workSpace/c_cpp_projects/apollo/src/util.cc" "/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles/apollo.dir/src/util.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

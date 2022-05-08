@@ -127,6 +127,19 @@ test_config/fast:
 .PHONY : test_config/fast
 
 #=============================================================================
+# Target rules for targets named test_thread
+
+# Build rule for target.
+test_thread: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_thread
+.PHONY : test_thread
+
+# fast build rule for target.
+test_thread/fast:
+	$(MAKE) -f CMakeFiles/test_thread.dir/build.make CMakeFiles/test_thread.dir/build
+.PHONY : test_thread/fast
+
+#=============================================================================
 # Target rules for targets named test
 
 # Build rule for target.
@@ -205,6 +218,33 @@ src/log.s: src/log.cc.s
 src/log.cc.s:
 	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/log.cc.s
 .PHONY : src/log.cc.s
+
+src/thread.o: src/thread.cc.o
+
+.PHONY : src/thread.o
+
+# target to build an object file
+src/thread.cc.o:
+	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/thread.cc.o
+.PHONY : src/thread.cc.o
+
+src/thread.i: src/thread.cc.i
+
+.PHONY : src/thread.i
+
+# target to preprocess a source file
+src/thread.cc.i:
+	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/thread.cc.i
+.PHONY : src/thread.cc.i
+
+src/thread.s: src/thread.cc.s
+
+.PHONY : src/thread.s
+
+# target to generate assembly for a file
+src/thread.cc.s:
+	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/thread.cc.s
+.PHONY : src/thread.cc.s
 
 src/util.o: src/util.cc.o
 
@@ -287,6 +327,33 @@ tests/test_config.cc.s:
 	$(MAKE) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cc.s
 .PHONY : tests/test_config.cc.s
 
+tests/test_thread.o: tests/test_thread.cc.o
+
+.PHONY : tests/test_thread.o
+
+# target to build an object file
+tests/test_thread.cc.o:
+	$(MAKE) -f CMakeFiles/test_thread.dir/build.make CMakeFiles/test_thread.dir/tests/test_thread.cc.o
+.PHONY : tests/test_thread.cc.o
+
+tests/test_thread.i: tests/test_thread.cc.i
+
+.PHONY : tests/test_thread.i
+
+# target to preprocess a source file
+tests/test_thread.cc.i:
+	$(MAKE) -f CMakeFiles/test_thread.dir/build.make CMakeFiles/test_thread.dir/tests/test_thread.cc.i
+.PHONY : tests/test_thread.cc.i
+
+tests/test_thread.s: tests/test_thread.cc.s
+
+.PHONY : tests/test_thread.s
+
+# target to generate assembly for a file
+tests/test_thread.cc.s:
+	$(MAKE) -f CMakeFiles/test_thread.dir/build.make CMakeFiles/test_thread.dir/tests/test_thread.cc.s
+.PHONY : tests/test_thread.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -296,6 +363,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test_config"
 	@echo "... edit_cache"
+	@echo "... test_thread"
 	@echo "... test"
 	@echo "... apollo"
 	@echo "... src/config.o"
@@ -304,6 +372,9 @@ help:
 	@echo "... src/log.o"
 	@echo "... src/log.i"
 	@echo "... src/log.s"
+	@echo "... src/thread.o"
+	@echo "... src/thread.i"
+	@echo "... src/thread.s"
 	@echo "... src/util.o"
 	@echo "... src/util.i"
 	@echo "... src/util.s"
@@ -313,6 +384,9 @@ help:
 	@echo "... tests/test_config.o"
 	@echo "... tests/test_config.i"
 	@echo "... tests/test_config.s"
+	@echo "... tests/test_thread.o"
+	@echo "... tests/test_thread.i"
+	@echo "... tests/test_thread.s"
 .PHONY : help
 
 

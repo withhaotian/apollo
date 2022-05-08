@@ -4,6 +4,9 @@
 CMakeFiles/test_config.dir/tests/test_config.cc.o
  /mnt/h/workSpace/c_cpp_projects/apollo/src/config.h
  /mnt/h/workSpace/c_cpp_projects/apollo/src/log.h
+ /mnt/h/workSpace/c_cpp_projects/apollo/src/mutex.h
+ /mnt/h/workSpace/c_cpp_projects/apollo/src/noncopyable.h
  /mnt/h/workSpace/c_cpp_projects/apollo/src/singleton.h
+ /mnt/h/workSpace/c_cpp_projects/apollo/src/thread.h
  /mnt/h/workSpace/c_cpp_projects/apollo/src/util.h
  /mnt/h/workSpace/c_cpp_projects/apollo/tests/test_config.cc

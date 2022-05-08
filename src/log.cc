@@ -131,7 +131,6 @@ public:
     }
 };
 
-
 class StringFormatItem : public LogFormatter::FormatItem {
 public:
     StringFormatItem(const std::string& str)
@@ -204,12 +203,16 @@ Logger::Logger(const std::string& name)
 }
 
 void Logger::clearAppenders() {
+    MutexType::Lock lock(m_mutex);
     m_appenders.clear();
 }
 
 void Logger::addAppender(LogAppender::ptr appender)
 {
+    MutexType::Lock lock(m_mutex);
+
     if(!appender->getFormatter()) {
+        MutexType::Lock ll(appender->m_mutex);
         appender->m_formatter = m_formatter;
     }
     m_appenders.push_back(appender);
@@ -217,6 +220,7 @@ void Logger::addAppender(LogAppender::ptr appender)
 
 void Logger::delAppender(LogAppender::ptr appender)
 {
+    MutexType::Lock lock(m_mutex);
     for (auto it = m_appenders.begin(); // auto (after c++ 11)
         it != m_appenders.end(); ++it)
     {
@@ -229,9 +233,12 @@ void Logger::delAppender(LogAppender::ptr appender)
 }
 
 void Logger::setFormatter(LogFormatter::ptr val) {
+    MutexType::Lock lock(m_mutex);
+
     m_formatter = val;
 
     for(auto& i : m_appenders) {
+        MutexType::Lock ll(i->m_mutex);
         if(!i->m_hasFormatter) {
             i->m_formatter = m_formatter;
         }
@@ -251,6 +258,7 @@ void Logger::setFormatter(const std::string& val) {
 }
 
 LogFormatter::ptr Logger::getFormatter() {
+    MutexType::Lock lock(m_mutex);
     return m_formatter;
 }
 
@@ -263,6 +271,7 @@ void Logger::log(LogLevel::Level level, LogEvent::ptr event)
         /*  
             当没有为当前logger添加appender的时候，自动调用"root"日志器打印日志
         */
+        MutexType::Lock lock(m_mutex);
         if(!m_appenders.empty()) {
             for(auto& i : m_appenders) {
                 i->log(self, level, event);
@@ -348,10 +357,14 @@ LogLevel::Level LogLevel::FromString(const std::string& str) {
 // --------------------------------------------------------
 // Logappender implementation
 LogFormatter::ptr LogAppender::getFormatter() {
+    MutexType::Lock lock(m_mutex);
+
     return m_formatter;
 }
 
 void LogAppender::setFormatter(LogFormatter::ptr val) {
+    MutexType::Lock lock(m_mutex);
+
     m_formatter = val;
     if(m_formatter) {
         m_hasFormatter = true;
@@ -374,6 +387,7 @@ void FileLogAppender::log(Logger::ptr logger, LogLevel::Level level, LogEvent::p
             reopen();
             m_lastTime = now;
         }
+        MutexType::Lock lock(m_mutex);
         if(!m_formatter->format(m_filestream, logger, level, event)) {
             std::cout << "error" << std::endl;
         }
@@ -382,6 +396,7 @@ void FileLogAppender::log(Logger::ptr logger, LogLevel::Level level, LogEvent::p
 
 bool FileLogAppender::reopen()
 {
+    MutexType::Lock lock(m_mutex);
     if (m_filestream)
     {
         m_filestream.close();
@@ -396,6 +411,7 @@ void StdoutLogAppender::log(Logger::ptr logger, LogLevel::Level level, LogEvent:
 {
     if (level >= LogAppender::getLevel())
     {
+        MutexType::Lock lock(m_mutex);
         m_formatter->format(std::cout, logger, level, event);
     }
 }
@@ -561,11 +577,11 @@ LoggerManager::LoggerManager() {
     m_root->addAppender(LogAppender::ptr(new StdoutLogAppender));
 
     m_loggers[m_root->m_name] = m_root;
-
-    init();
 }
 
 Logger::ptr LoggerManager::getLogger(const std::string& name) {
+    MutexType::Lock lock(m_mutex);
+
     auto it = m_loggers.find(name);
     if(it != m_loggers.end()) {
         return it->second;
@@ -573,7 +589,8 @@ Logger::ptr LoggerManager::getLogger(const std::string& name) {
 
     Logger::ptr logger(new Logger(name));
     /* 
-        每个logger里都会有一个名为“root”的主logger，当没有为当前logger设置appender时，会自动调用“root” logger进行日志处理
+        每个logger里都会有一个名为“root”的主logger，
+        当没有为当前logger设置appender时，会自动调用“root” logger进行日志处理
         经由日志管理器生成的logger中m_root的root都是一样的，只有一个
     */
     logger->m_root = m_root;   
@@ -622,12 +639,12 @@ struct LogDefine {
 template<>
 class LexicalCast<std::string, LogDefine> {
 public:
-   LogDefine operator()(const std::string& v) {
+    LogDefine operator()(const std::string& v) {
         YAML::Node n = YAML::Load(v);
         LogDefine ld;
         if(!n["name"].IsDefined()) {
             std::cout << "LOG CONFIG ERROR, LOG NAME IS NULL " << n
-                      << std::endl;
+                    << std::endl;
             throw std::logic_error("LOG CONFIG NAME IS NULL!");
         }
         ld.name = n["name"].as<std::string>();
@@ -641,7 +658,7 @@ public:
                 auto a = n["appenders"][x];
                 if(!a["type"].IsDefined()) {
                     std::cout << "LOG CONDIG ERROR, LOG APPENDER TYPE IS NULL " << a
-                              << std::endl;
+                            << std::endl;
                     continue;
                 }
                 std::string type = a["type"].as<std::string>();
@@ -650,7 +667,7 @@ public:
                     lad.type = 1;
                     if(!a["file"].IsDefined()) {
                         std::cout << "LOG CONFIG ERROR, FILE PATH IS NULL " << a
-                              << std::endl;
+                            << std::endl;
                         continue;
                     }
                     lad.file = a["file"].as<std::string>();
@@ -664,7 +681,7 @@ public:
                     }
                 } else {
                     std::cout << "LOG CONFIG ERROR, LOG APPENDER IS INVALID " << a
-                              << std::endl;
+                            << std::endl;
                     continue;
                 }
                 if(a["level"].IsDefined()) {
@@ -796,6 +813,8 @@ static LogIniter __log_init;
 // -------------------------------------------------
 // 输出yaml配置
 std::string FileLogAppender::toYamlString() {
+    MutexType::Lock lock(m_mutex);
+
     YAML::Node node;
 
     node["type"] = "FileLogAppender";
@@ -815,6 +834,8 @@ std::string FileLogAppender::toYamlString() {
 }
 
 std::string StdoutLogAppender::toYamlString() {
+    MutexType::Lock lock(m_mutex);
+
     YAML::Node node;
 
     node["type"] = "StdoutLogAppender";
@@ -829,10 +850,11 @@ std::string StdoutLogAppender::toYamlString() {
     ss << node;
 
     return ss.str();
-
 }
 
 std::string Logger::toYamlString() {
+    MutexType::Lock lock(m_mutex);
+
     YAML::Node node;
 
     node["name"] = m_name;
@@ -854,6 +876,8 @@ std::string Logger::toYamlString() {
 }
 
 std::string LoggerManager::toYamlString() {
+    MutexType::Lock lock(m_mutex);
+
     YAML::Node node;
 
     for(auto& i : m_loggers) {
@@ -864,8 +888,6 @@ std::string LoggerManager::toYamlString() {
     ss << node;
 
     return ss.str();
-
 }
 
 }  // namespace apollo
-

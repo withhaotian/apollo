@@ -14,6 +14,8 @@
 
 #include "log.h"
 #include "util.h"
+#include "thread.h"
+#include "mutex.h"
 
 namespace apollo {
 /*
@@ -294,6 +296,8 @@ public:
     // 配置项变更的回调函数封装
     typedef std::function<void (const T& old_val, const T& new_val)> on_change_cb;
 
+    typedef RWMutex RWMutexType;
+
     ConfigVar(const std::string& name,
                 const T& default_val,
                 const std::string& description = "")
@@ -305,6 +309,7 @@ public:
     std::string toString() override {
         try {
             // return boost::lexical_cast<std::string>(m_val);
+            RWMutexType::ReadLock lock(m_mutex);
             return ToStr()(m_val);
         } catch(const std::exception& e) {
             APOLLO_LOG_ERROR(APOLLO_LOG_ROOT()) << "ConfigVar::toString EXCEPTION "
@@ -329,16 +334,25 @@ public:
     }
 
     // GET/SET方法
-    const T& getValue() const {return m_val;}
+    const T& getValue() const {
+        RWMutexType::ReadLock lock(m_mutex);
+        return m_val;
+    }
 
     void setValue(const T& val) {
-        if(val == m_val) {
-            return;
+        {
+            // 查找用读锁,加入大括号给与作用域
+            RWMutexType::ReadLock lock(m_mutex);
+            if(val == m_val) {
+                return;
+            }
+
+            for(auto& i : m_cbs) {
+                i.second(m_val, val);  // 写入监听事件，old_val, new_val
+            }
         }
 
-        for(auto& i : m_cbs) {
-            i.second(m_val, val);  // 写入监听事件，old_val, new_val
-        }
+        RWMutexType::WriteLock lock(m_mutex);
         m_val = val;
     }
 
@@ -347,6 +361,7 @@ public:
     
     // 增加/删除监听器 
     uint64_t addLisiner(const on_change_cb& cb) {
+        RWMutexType::WriteLock lock(m_mutex);
         static uint64_t s_key_id = 0;  // 唯一键
         ++s_key_id;
 
@@ -355,19 +370,29 @@ public:
     }
 
     on_change_cb getLisiner(const uint64_t key) const {
+        RWMutexType::ReadLock lock(m_mutex);
         auto it = m_cbs.find(key);
 
         return it == m_cbs.end() ? nullptr : it->second;
     }
 
     void delLisiner(const uint64_t key) {
+        RWMutexType::WriteLock lock(m_mutex);
         m_cbs.erase(key);
     }
 
-private:
-    T m_val;    // 配置参数
-    std::map<uint64_t, on_change_cb> m_cbs; // 变更回调函数，key值唯一
+    void clearListener() {
+        RWMutexType::WriteLock lock(m_mutex);
+        m_cbs.clear();
+    }
 
+private:
+    // 配置参数
+    T m_val;
+    // 变更回调函数，key值唯一
+    std::map<uint64_t, on_change_cb> m_cbs; 
+    // mutex
+    mutable RWMutexType m_mutex;
 };
 
 /*
@@ -377,6 +402,8 @@ private:
 class Config {
 public:
     typedef std::unordered_map<std::string, ConfigVarBase::ptr> ConfigVarMap;   // 多态
+
+    typedef RWMutex RWMutexType;
 
     /**
         获取/创建配置参数
@@ -388,7 +415,8 @@ public:
          // 采用静态方法获取静态成员而不采用直接定义静态成员s_datas的目的在于
          // 防止s_datas的初始化在Lookup之前（两个静态变量没法得知哪个先被初始化）
          // 从而调用一个未初始化的静态变量
-        auto it = GetDatas().find(name);   
+        RWMutexType::WriteLock lock(GetMutex());
+        auto it = GetDatas().find(name);
         if(it != GetDatas().end()) {
             // 如果转换失败，返回0
             auto tmp = std::dynamic_pointer_cast<ConfigVar<T>> (it->second);
@@ -416,7 +444,7 @@ public:
 
         return v;
     }
-   
+
     /**
      * 查找配置参数,返回配置参数的基类
      */
@@ -426,13 +454,19 @@ public:
     static void LoadFromYaml(const YAML::Node& root);
 
     /* 加载配置模块里面的所有配置项 */
-    /* static void Visit() */
+    static void Visit(std::function<void(ConfigVarBase::ptr)> cb);
 
 private:
     /* 获取所有的配置项 */
     static ConfigVarMap& GetDatas() {
         static ConfigVarMap s_datas;
         return s_datas;
+    }
+    
+    /* 获取锁 */
+    static RWMutexType& GetMutex() {
+        static RWMutexType s_mutex;
+        return s_mutex;
     }
 
 };

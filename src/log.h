@@ -10,15 +10,18 @@
 #include <vector>
 #include <stdarg.h>
 #include <map>
+
 #include "singleton.h"
 #include "util.h"
+#include "thread.h"
+#include "mutex.h"
 
 // 使用流式方式将日志级别level的日志写入到logger
 #define APOLLO_LOG_LEVEL(logger, level) \
     if(logger->getLevel() <= level) \
         apollo::LogEventWrap(apollo::LogEvent::ptr(new apollo::LogEvent(logger, level, \
                         __FILE__, __LINE__, 0, apollo::GetThreadId(),\
-                apollo::GetFiberId(), time(0), "THREAD_APOLLO"))).getSS()
+                apollo::GetFiberId(), time(0), apollo::Thread::GetName()))).getSS()
 
 #define APOLLO_LOG_DEBUG(logger) APOLLO_LOG_LEVEL(logger, apollo::LogLevel::DEBUG)
 #define APOLLO_LOG_INFO(logger) APOLLO_LOG_LEVEL(logger, apollo::LogLevel::INFO)
@@ -29,7 +32,7 @@
     if(logger->getLevel() <= level) \
         apollo::LogEventWrap(apollo::LogEvent::ptr(new apollo::LogEvent(logger, level, \
                         __FILE__, __LINE__, 0, apollo::GetThreadId(),\
-                apollo::GetFiberId(), time(0), "THREAD_APOLLO"))).getEvent()->format(fmt, __VA_ARGS__)
+                apollo::GetFiberId(), time(0), apollo::Thread::GetName()))).getEvent()->format(fmt, __VA_ARGS__)
 
 #define APOLLO_LOG_FMT_DEBUG(logger, fmt, ...) APOLLO_LOG_FMT_LEVEL(logger, apollo::LogLevel::DEBUG, fmt, __VA_ARGS__)
 #define APOLLO_LOG_FMT_INFO(logger, fmt, ...)  APOLLO_LOG_FMT_LEVEL(logger, apollo::LogLevel::INFO, fmt, __VA_ARGS__)
@@ -317,6 +320,8 @@ friend class Logger;
 public:
     typedef std::shared_ptr<LogAppender> ptr;
 
+    typedef Spinlock MutexType;
+
     /**
      *  析构函数
      */
@@ -361,6 +366,8 @@ protected:
     bool m_hasFormatter = false;
     // 日志格式器
     LogFormatter::ptr m_formatter;
+    // mutex
+    MutexType m_mutex;
 };
 
 /**
@@ -370,6 +377,8 @@ class Logger : public std::enable_shared_from_this<Logger> {
 friend class LoggerManager;
 public:
     typedef std::shared_ptr<Logger> ptr;
+
+    typedef Spinlock MutexType;
 
     /**
      *  构造函数
@@ -476,6 +485,8 @@ private:
     LogFormatter::ptr m_formatter;
     // 主日志器
     Logger::ptr m_root;
+    // mutex
+    MutexType m_mutex;
 };
 
 // 输出到控制台的Appender
@@ -515,6 +526,8 @@ private:
  */
 class LoggerManager {
 public:
+    typedef Spinlock MutexType;
+    
     /**
      *  构造函数
      */
@@ -524,11 +537,6 @@ public:
      *  获取日志器
      */
     Logger::ptr getLogger(const std::string& name);
-
-    /**
-     *  初始化
-     */
-    void init();
 
     /**
      *  返回主日志器
@@ -544,6 +552,8 @@ private:
     std::map<std::string, Logger::ptr> m_loggers;
     // 主日志器
     Logger::ptr m_root;
+    // mutex
+    MutexType m_mutex;
 };
 
 // 日志器管理类单例模式

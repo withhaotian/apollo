@@ -18,7 +18,7 @@ Vim (Vim的自定义配置可参考https://github.com/amix/vimrc)
 
 2. 配置模块【100%】
 
-3. 线程模块【TODO】
+3. 线程模块【100%】
 
 4. 协程模块【TODO】
 

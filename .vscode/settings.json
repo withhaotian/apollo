@@ -36,6 +36,11 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "utility": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "chrono": "cpp",
+        "ctime": "cpp",
+        "unordered_set": "cpp",
+        "ratio": "cpp",
+        "thread": "cpp"
     }
 }

@@ -211,5 +211,12 @@ int main(int argc, char** argv) {
     /* test_class(); */
     test_log();
 
+    apollo::Config::Visit([](apollo::ConfigVarBase::ptr var) {
+        APOLLO_LOG_INFO(APOLLO_LOG_ROOT()) << "Name: " << var->getName()
+                    << " Description: " << var->getDescription()
+                    << " Typename: " << var->getTypeName()
+                    << " Value: " << var->toString();
+    });
+
     return 0;
 }
