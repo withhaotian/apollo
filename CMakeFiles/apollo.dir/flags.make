@@ -16,3 +16,5 @@ CXX_INCLUDES = -I/mnt/h/workSpace/c_cpp_projects/apollo/.
 
 # Custom defines: CMakeFiles/apollo.dir/src/thread.cc.o_DEFINES = __FILE__="src/thread.cc"
 
+# Custom defines: CMakeFiles/apollo.dir/src/fiber.cc.o_DEFINES = __FILE__="src/fiber.cc"
+

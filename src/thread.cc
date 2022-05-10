@@ -47,6 +47,7 @@ Thread::Thread(std::function<void()> cb, const std::string& name)
     }
     
 }
+
 Thread::~Thread() {
     if(m_thread) {
         pthread_detach(m_thread);   // 销毁线程

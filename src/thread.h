@@ -14,7 +14,7 @@
 
 namespace apollo {
 // 线程类
-class Thread : Noncopyable { // 禁止线程拷贝
+class Thread : Noncopyable { // 禁止类拷贝
 public:
     typedef std::shared_ptr<Thread> ptr;
 

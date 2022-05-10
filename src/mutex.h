@@ -35,6 +35,7 @@ private:
 };
 
 // 局部锁模板类
+// 可以视为mutex的代理，由此类的生命周期来自动管理mutex
 template<class T>
 class ScopedLockImpl {
 public:

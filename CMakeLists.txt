@@ -15,6 +15,7 @@ set(LIB_SRC
 	src/util.cc
 	src/config.cc
 	src/thread.cc
+	src/fiber.cc
 )
 
 add_library(apollo SHARED ${LIB_SRC})
@@ -27,10 +28,10 @@ set(LIBS
 	pthread
     )
 
-add_executable(test tests/test.cc)
+add_executable(test_log tests/test_log.cc)
 force_redefine_file_macro_for_sources(test)  # __FILE__
-add_dependencies(test apollo)
-target_link_libraries(test ${LIBS})
+add_dependencies(test_log apollo)
+target_link_libraries(test_log ${LIBS})
 
 add_executable(test_config tests/test_config.cc)
 force_redefine_file_macro_for_sources(test_config)  # __FILE__
@@ -41,6 +42,16 @@ add_executable(test_thread tests/test_thread.cc)
 force_redefine_file_macro_for_sources(test_thread)  # __FILE__
 add_dependencies(test_thread apollo)
 target_link_libraries(test_thread ${LIBS})
+
+add_executable(test_util tests/test_util.cc)
+force_redefine_file_macro_for_sources(test_util)  # __FILE__
+add_dependencies(test_util apollo)
+target_link_libraries(test_util ${LIBS})
+
+add_executable(test_fiber tests/test_fiber.cc)
+force_redefine_file_macro_for_sources(test_fiber)  # __FILE__
+add_dependencies(test_fiber apollo)
+target_link_libraries(test_fiber ${LIBS})
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

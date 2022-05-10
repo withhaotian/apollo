@@ -6,7 +6,7 @@ namespace apollo
 
 // 基类 - 禁用对象拷贝、复制
 class Noncopyable {
-public:
+protected:
     /**
      * 默认构造函数
      */
@@ -16,7 +16,7 @@ public:
      * 默认析构函数
      */
     ~Noncopyable() = default;
-
+public:
     /**
      * 拷贝构造函数(禁用)
      */

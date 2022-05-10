@@ -3,7 +3,9 @@
 
 CMakeFiles/test_thread.dir/tests/test_thread.cc.o: src/apollo.h
 CMakeFiles/test_thread.dir/tests/test_thread.cc.o: src/config.h
+CMakeFiles/test_thread.dir/tests/test_thread.cc.o: src/fiber.h
 CMakeFiles/test_thread.dir/tests/test_thread.cc.o: src/log.h
+CMakeFiles/test_thread.dir/tests/test_thread.cc.o: src/macro.h
 CMakeFiles/test_thread.dir/tests/test_thread.cc.o: src/mutex.h
 CMakeFiles/test_thread.dir/tests/test_thread.cc.o: src/noncopyable.h
 CMakeFiles/test_thread.dir/tests/test_thread.cc.o: src/singleton.h

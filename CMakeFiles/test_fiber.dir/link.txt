@@ -1,0 +1,1 @@
+/usr/bin/c++   -rdynamic -O0 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined  -rdynamic CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o  -o bin/test_fiber   -L/apps/sylar/lib  -Wl,-rpath,/apps/sylar/lib:/mnt/h/workSpace/c_cpp_projects/apollo/lib lib/libapollo.so -lyaml-cpp -lpthread 

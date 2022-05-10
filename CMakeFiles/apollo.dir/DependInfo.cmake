@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/mnt/h/workSpace/c_cpp_projects/apollo/src/config.cc" "/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles/apollo.dir/src/config.cc.o"
+  "/mnt/h/workSpace/c_cpp_projects/apollo/src/fiber.cc" "/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles/apollo.dir/src/fiber.cc.o"
   "/mnt/h/workSpace/c_cpp_projects/apollo/src/log.cc" "/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles/apollo.dir/src/log.cc.o"
   "/mnt/h/workSpace/c_cpp_projects/apollo/src/thread.cc" "/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles/apollo.dir/src/thread.cc.o"
   "/mnt/h/workSpace/c_cpp_projects/apollo/src/util.cc" "/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles/apollo.dir/src/util.cc.o"

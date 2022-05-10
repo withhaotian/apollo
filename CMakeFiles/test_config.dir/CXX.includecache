@@ -105,9 +105,17 @@ noncopyable.h
 /mnt/h/workSpace/c_cpp_projects/apollo/src/util.h
 sys/syscall.h
 -
+pthread.h
+-
+string
+-
+cxxabi.h
+-
 stdio.h
 -
 stdint.h
+-
+vector
 -
 
 /mnt/h/workSpace/c_cpp_projects/apollo/tests/test_config.cc

@@ -10,6 +10,17 @@ CMakeFiles/apollo.dir/src/config.cc.o: src/singleton.h
 CMakeFiles/apollo.dir/src/config.cc.o: src/thread.h
 CMakeFiles/apollo.dir/src/config.cc.o: src/util.h
 
+CMakeFiles/apollo.dir/src/fiber.cc.o: src/config.h
+CMakeFiles/apollo.dir/src/fiber.cc.o: src/fiber.cc
+CMakeFiles/apollo.dir/src/fiber.cc.o: src/fiber.h
+CMakeFiles/apollo.dir/src/fiber.cc.o: src/log.h
+CMakeFiles/apollo.dir/src/fiber.cc.o: src/macro.h
+CMakeFiles/apollo.dir/src/fiber.cc.o: src/mutex.h
+CMakeFiles/apollo.dir/src/fiber.cc.o: src/noncopyable.h
+CMakeFiles/apollo.dir/src/fiber.cc.o: src/singleton.h
+CMakeFiles/apollo.dir/src/fiber.cc.o: src/thread.h
+CMakeFiles/apollo.dir/src/fiber.cc.o: src/util.h
+
 CMakeFiles/apollo.dir/src/log.cc.o: src/config.h
 CMakeFiles/apollo.dir/src/log.cc.o: src/log.cc
 CMakeFiles/apollo.dir/src/log.cc.o: src/log.h
@@ -27,6 +38,12 @@ CMakeFiles/apollo.dir/src/thread.cc.o: src/thread.cc
 CMakeFiles/apollo.dir/src/thread.cc.o: src/thread.h
 CMakeFiles/apollo.dir/src/thread.cc.o: src/util.h
 
+CMakeFiles/apollo.dir/src/util.cc.o: src/fiber.h
+CMakeFiles/apollo.dir/src/util.cc.o: src/log.h
+CMakeFiles/apollo.dir/src/util.cc.o: src/mutex.h
+CMakeFiles/apollo.dir/src/util.cc.o: src/noncopyable.h
+CMakeFiles/apollo.dir/src/util.cc.o: src/singleton.h
+CMakeFiles/apollo.dir/src/util.cc.o: src/thread.h
 CMakeFiles/apollo.dir/src/util.cc.o: src/util.cc
 CMakeFiles/apollo.dir/src/util.cc.o: src/util.h
 
