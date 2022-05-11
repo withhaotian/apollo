@@ -8,6 +8,7 @@ CMakeFiles/test_util.dir/tests/test_util.cc.o: src/log.h
 CMakeFiles/test_util.dir/tests/test_util.cc.o: src/macro.h
 CMakeFiles/test_util.dir/tests/test_util.cc.o: src/mutex.h
 CMakeFiles/test_util.dir/tests/test_util.cc.o: src/noncopyable.h
+CMakeFiles/test_util.dir/tests/test_util.cc.o: src/scheduler.h
 CMakeFiles/test_util.dir/tests/test_util.cc.o: src/singleton.h
 CMakeFiles/test_util.dir/tests/test_util.cc.o: src/thread.h
 CMakeFiles/test_util.dir/tests/test_util.cc.o: src/util.h

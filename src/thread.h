@@ -11,6 +11,7 @@
 #include <pthread.h>
 
 #include "noncopyable.h"
+#include "mutex.h"
 
 namespace apollo {
 // 线程类
@@ -52,6 +53,8 @@ private:
     std::function<void()>   m_cb;
     // 线程名
     std::string m_name;
+    // 信号量
+    Semaphore m_semaphore;
 };
 
 } // namespace apollo

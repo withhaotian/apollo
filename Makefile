@@ -166,6 +166,19 @@ test_config/fast:
 .PHONY : test_config/fast
 
 #=============================================================================
+# Target rules for targets named test_scheduler
+
+# Build rule for target.
+test_scheduler: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_scheduler
+.PHONY : test_scheduler
+
+# fast build rule for target.
+test_scheduler/fast:
+	$(MAKE) -f CMakeFiles/test_scheduler.dir/build.make CMakeFiles/test_scheduler.dir/build
+.PHONY : test_scheduler/fast
+
+#=============================================================================
 # Target rules for targets named test_log
 
 # Build rule for target.
@@ -271,6 +284,60 @@ src/log.s: src/log.cc.s
 src/log.cc.s:
 	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/log.cc.s
 .PHONY : src/log.cc.s
+
+src/mutex.o: src/mutex.cc.o
+
+.PHONY : src/mutex.o
+
+# target to build an object file
+src/mutex.cc.o:
+	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/mutex.cc.o
+.PHONY : src/mutex.cc.o
+
+src/mutex.i: src/mutex.cc.i
+
+.PHONY : src/mutex.i
+
+# target to preprocess a source file
+src/mutex.cc.i:
+	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/mutex.cc.i
+.PHONY : src/mutex.cc.i
+
+src/mutex.s: src/mutex.cc.s
+
+.PHONY : src/mutex.s
+
+# target to generate assembly for a file
+src/mutex.cc.s:
+	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/mutex.cc.s
+.PHONY : src/mutex.cc.s
+
+src/scheduler.o: src/scheduler.cc.o
+
+.PHONY : src/scheduler.o
+
+# target to build an object file
+src/scheduler.cc.o:
+	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/scheduler.cc.o
+.PHONY : src/scheduler.cc.o
+
+src/scheduler.i: src/scheduler.cc.i
+
+.PHONY : src/scheduler.i
+
+# target to preprocess a source file
+src/scheduler.cc.i:
+	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/scheduler.cc.i
+.PHONY : src/scheduler.cc.i
+
+src/scheduler.s: src/scheduler.cc.s
+
+.PHONY : src/scheduler.s
+
+# target to generate assembly for a file
+src/scheduler.cc.s:
+	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/scheduler.cc.s
+.PHONY : src/scheduler.cc.s
 
 src/thread.o: src/thread.cc.o
 
@@ -407,6 +474,33 @@ tests/test_log.cc.s:
 	$(MAKE) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/tests/test_log.cc.s
 .PHONY : tests/test_log.cc.s
 
+tests/test_scheduler.o: tests/test_scheduler.cc.o
+
+.PHONY : tests/test_scheduler.o
+
+# target to build an object file
+tests/test_scheduler.cc.o:
+	$(MAKE) -f CMakeFiles/test_scheduler.dir/build.make CMakeFiles/test_scheduler.dir/tests/test_scheduler.cc.o
+.PHONY : tests/test_scheduler.cc.o
+
+tests/test_scheduler.i: tests/test_scheduler.cc.i
+
+.PHONY : tests/test_scheduler.i
+
+# target to preprocess a source file
+tests/test_scheduler.cc.i:
+	$(MAKE) -f CMakeFiles/test_scheduler.dir/build.make CMakeFiles/test_scheduler.dir/tests/test_scheduler.cc.i
+.PHONY : tests/test_scheduler.cc.i
+
+tests/test_scheduler.s: tests/test_scheduler.cc.s
+
+.PHONY : tests/test_scheduler.s
+
+# target to generate assembly for a file
+tests/test_scheduler.cc.s:
+	$(MAKE) -f CMakeFiles/test_scheduler.dir/build.make CMakeFiles/test_scheduler.dir/tests/test_scheduler.cc.s
+.PHONY : tests/test_scheduler.cc.s
+
 tests/test_thread.o: tests/test_thread.cc.o
 
 .PHONY : tests/test_thread.o
@@ -473,6 +567,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... test_thread"
 	@echo "... test_config"
+	@echo "... test_scheduler"
 	@echo "... test_log"
 	@echo "... apollo"
 	@echo "... src/config.o"
@@ -484,6 +579,12 @@ help:
 	@echo "... src/log.o"
 	@echo "... src/log.i"
 	@echo "... src/log.s"
+	@echo "... src/mutex.o"
+	@echo "... src/mutex.i"
+	@echo "... src/mutex.s"
+	@echo "... src/scheduler.o"
+	@echo "... src/scheduler.i"
+	@echo "... src/scheduler.s"
 	@echo "... src/thread.o"
 	@echo "... src/thread.i"
 	@echo "... src/thread.s"
@@ -499,6 +600,9 @@ help:
 	@echo "... tests/test_log.o"
 	@echo "... tests/test_log.i"
 	@echo "... tests/test_log.s"
+	@echo "... tests/test_scheduler.o"
+	@echo "... tests/test_scheduler.i"
+	@echo "... tests/test_scheduler.s"
 	@echo "... tests/test_thread.o"
 	@echo "... tests/test_thread.i"
 	@echo "... tests/test_thread.s"

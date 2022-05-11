@@ -9,6 +9,7 @@ CMakeFiles/test_thread.dir/tests/test_thread.cc.o
  /mnt/h/workSpace/c_cpp_projects/apollo/src/macro.h
  /mnt/h/workSpace/c_cpp_projects/apollo/src/mutex.h
  /mnt/h/workSpace/c_cpp_projects/apollo/src/noncopyable.h
+ /mnt/h/workSpace/c_cpp_projects/apollo/src/scheduler.h
  /mnt/h/workSpace/c_cpp_projects/apollo/src/singleton.h
  /mnt/h/workSpace/c_cpp_projects/apollo/src/thread.h
  /mnt/h/workSpace/c_cpp_projects/apollo/src/util.h

@@ -5,13 +5,15 @@
 #include <ucontext.h>
 #include <functional>
 
-#include "thread.h"
-
 namespace apollo
 {
+
+class Scheduler;
+
 // 协程类-轻量级线程
 class Fiber : public std::enable_shared_from_this<Fiber>
 {
+friend class Scheduler;
 public:
     typedef std::shared_ptr<Fiber> ptr;
 
@@ -40,7 +42,7 @@ public:
     // 构造函数
     // cb 协程执行函数
     // stackSize 协程运行栈大小
-    Fiber(std::function<void()> cb, size_t stackSize = 0);
+    Fiber(std::function<void()> cb, size_t stackSize = 0, bool use_caller = false);
     ~Fiber();
     
     // 重置协程执行函数，并设置状态
@@ -52,10 +54,10 @@ public:
     // 将当前协程切换到运行状态
     void swapIn();
 
-    // 将当前协程切换到运行状态【由主协程负责切换】
+    // 将当前协程切换到运行状态【由当前线程的主协程负责切换】
     void call();
 
-    // 将当前协程切换到后台【由主协程负责切换】
+    // 将当前协程切换到后台【由当前线程的主协程负责切换】
     void back();
 
     // 获取协程id
@@ -99,6 +101,8 @@ private:
     void* m_stack = nullptr;
     // 协程执行函数
     std::function<void()> m_cb;
+    // 是否使用当前运行线程
+    bool m_caller = false;
 };
 
 } // namespace apollo

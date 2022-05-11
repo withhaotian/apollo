@@ -60,6 +60,7 @@ all: CMakeFiles/test_fiber.dir/all
 all: CMakeFiles/test_util.dir/all
 all: CMakeFiles/test_thread.dir/all
 all: CMakeFiles/test_config.dir/all
+all: CMakeFiles/test_scheduler.dir/all
 all: CMakeFiles/test_log.dir/all
 all: CMakeFiles/apollo.dir/all
 
@@ -75,6 +76,7 @@ clean: CMakeFiles/test_fiber.dir/clean
 clean: CMakeFiles/test_util.dir/clean
 clean: CMakeFiles/test_thread.dir/clean
 clean: CMakeFiles/test_config.dir/clean
+clean: CMakeFiles/test_scheduler.dir/clean
 clean: CMakeFiles/test_log.dir/clean
 clean: CMakeFiles/apollo.dir/clean
 
@@ -87,12 +89,12 @@ clean: CMakeFiles/apollo.dir/clean
 CMakeFiles/test_fiber.dir/all: CMakeFiles/apollo.dir/all
 	$(MAKE) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/depend
 	$(MAKE) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=9,10 "Built target test_fiber"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=11,12 "Built target test_fiber"
 .PHONY : CMakeFiles/test_fiber.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_fiber.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_fiber.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 0
 .PHONY : CMakeFiles/test_fiber.dir/rule
@@ -114,12 +116,12 @@ CMakeFiles/test_fiber.dir/clean:
 CMakeFiles/test_util.dir/all: CMakeFiles/apollo.dir/all
 	$(MAKE) -f CMakeFiles/test_util.dir/build.make CMakeFiles/test_util.dir/depend
 	$(MAKE) -f CMakeFiles/test_util.dir/build.make CMakeFiles/test_util.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=15,16 "Built target test_util"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=19,20 "Built target test_util"
 .PHONY : CMakeFiles/test_util.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_util.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_util.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 0
 .PHONY : CMakeFiles/test_util.dir/rule
@@ -141,12 +143,12 @@ CMakeFiles/test_util.dir/clean:
 CMakeFiles/test_thread.dir/all: CMakeFiles/apollo.dir/all
 	$(MAKE) -f CMakeFiles/test_thread.dir/build.make CMakeFiles/test_thread.dir/depend
 	$(MAKE) -f CMakeFiles/test_thread.dir/build.make CMakeFiles/test_thread.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=13,14 "Built target test_thread"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=17,18 "Built target test_thread"
 .PHONY : CMakeFiles/test_thread.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_thread.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_thread.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 0
 .PHONY : CMakeFiles/test_thread.dir/rule
@@ -168,12 +170,12 @@ CMakeFiles/test_thread.dir/clean:
 CMakeFiles/test_config.dir/all: CMakeFiles/apollo.dir/all
 	$(MAKE) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/depend
 	$(MAKE) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=7,8 "Built target test_config"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=9,10 "Built target test_config"
 .PHONY : CMakeFiles/test_config.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_config.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_config.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 0
 .PHONY : CMakeFiles/test_config.dir/rule
@@ -189,18 +191,45 @@ CMakeFiles/test_config.dir/clean:
 .PHONY : CMakeFiles/test_config.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/test_scheduler.dir
+
+# All Build rule for target.
+CMakeFiles/test_scheduler.dir/all: CMakeFiles/apollo.dir/all
+	$(MAKE) -f CMakeFiles/test_scheduler.dir/build.make CMakeFiles/test_scheduler.dir/depend
+	$(MAKE) -f CMakeFiles/test_scheduler.dir/build.make CMakeFiles/test_scheduler.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=15,16 "Built target test_scheduler"
+.PHONY : CMakeFiles/test_scheduler.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_scheduler.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 10
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_scheduler.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 0
+.PHONY : CMakeFiles/test_scheduler.dir/rule
+
+# Convenience name for target.
+test_scheduler: CMakeFiles/test_scheduler.dir/rule
+
+.PHONY : test_scheduler
+
+# clean rule for target.
+CMakeFiles/test_scheduler.dir/clean:
+	$(MAKE) -f CMakeFiles/test_scheduler.dir/build.make CMakeFiles/test_scheduler.dir/clean
+.PHONY : CMakeFiles/test_scheduler.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/test_log.dir
 
 # All Build rule for target.
 CMakeFiles/test_log.dir/all: CMakeFiles/apollo.dir/all
 	$(MAKE) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/depend
 	$(MAKE) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=11,12 "Built target test_log"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=13,14 "Built target test_log"
 .PHONY : CMakeFiles/test_log.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_log.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_log.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 0
 .PHONY : CMakeFiles/test_log.dir/rule
@@ -222,12 +251,12 @@ CMakeFiles/test_log.dir/clean:
 CMakeFiles/apollo.dir/all:
 	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/depend
 	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target apollo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target apollo"
 .PHONY : CMakeFiles/apollo.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/apollo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 8
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/apollo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles 0
 .PHONY : CMakeFiles/apollo.dir/rule

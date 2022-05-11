@@ -4,6 +4,7 @@
 #include "fiber.h"
 #include "log.h"
 #include "config.h"
+#include "scheduler.h"
 
 namespace apollo
 {
@@ -16,7 +17,7 @@ static std::atomic<uint64_t> s_fiber_id {0};                // 当前fiberid
 static std::atomic<uint64_t> s_fiber_count {0};             // 总fiber数量
 
 static thread_local Fiber* t_fiber = nullptr;               // 当前fiber
-static thread_local Fiber::ptr t_mainFiber = nullptr;     // 主fiber
+static thread_local Fiber::ptr t_mainFiber = nullptr;       // 主fiber
 
 // 动态分配内存
 class MallocStackAllocator {
@@ -47,9 +48,10 @@ Fiber::Fiber() {
 }
 
 // 有参构造函数，实例化新fiber
-Fiber::Fiber(std::function<void()> cb, size_t stackSize)
+Fiber::Fiber(std::function<void()> cb, size_t stackSize, bool use_caller)
     : m_id(++s_fiber_id)
-    , m_cb(cb) {
+    , m_cb(cb)
+    , m_caller(use_caller) {
     ++s_fiber_count;
 
     m_stackSize = m_stackSize ? m_stackSize : g_fiber_stack_size->getValue();
@@ -64,6 +66,7 @@ Fiber::Fiber(std::function<void()> cb, size_t stackSize)
     m_ctx.uc_stack.ss_sp = m_stack;
     m_ctx.uc_stack.ss_size = m_stackSize;
 
+    // 如果调用当前运行协程
     makecontext(&m_ctx, &Fiber::MainFunc, 0);
     m_state = INIT;
 
@@ -112,18 +115,29 @@ void Fiber::reset(std::function<void()> cb) {
     m_state = INIT;     // 协程状态初始化为init
 }
 
-// 将当前协程切换到后台
-void Fiber::swapOut() {
-    // 让出当前协程，将主协程作为活动协程
-    SetThis(t_mainFiber.get());
-    
-    if(swapcontext(&m_ctx, &t_mainFiber->m_ctx)) {
+// 将当前协程切换到运行状态
+void Fiber::swapIn() {
+    SetThis(this);
+    APOLLO_ASSERT(m_state != EXEC);
+    m_state = EXEC;
+
+    if(swapcontext(&Scheduler::GetMainFiber()->m_ctx, &m_ctx)) {
         APOLLO_ASSERT2(false, "SWAPCONTEXT FAILED: ");
     }
 }
 
-// 将当前协程切换到运行状态
-void Fiber::swapIn() {
+// 将当前协程切换到后台
+void Fiber::swapOut() {
+    // 让出当前协程，将主协程作为活动协程
+    SetThis(Scheduler::GetMainFiber());
+    
+    if(swapcontext(&m_ctx, &Scheduler::GetMainFiber()->m_ctx)) {
+        APOLLO_ASSERT2(false, "SWAPCONTEXT FAILED: ");
+    }
+}
+
+// 将当前协程切换到运行状态【由当前线程的主协程负责切换】
+void Fiber::call() {
     SetThis(this);
     APOLLO_ASSERT(m_state != EXEC);
     m_state = EXEC;
@@ -133,14 +147,14 @@ void Fiber::swapIn() {
     }
 }
 
-// 将当前协程切换到运行状态【由主协程负责切换】
-void Fiber::call() {
-
-}
-
-// 将当前协程切换到后台【由主协程负责切换】
+// 将当前协程切换到后台【由当前线程的主协程负责切换】
 void Fiber::back() {
-
+    // 让出当前协程，将主协程作为活动协程
+    SetThis(t_mainFiber.get());
+    
+    if(swapcontext(&m_ctx, &t_mainFiber->m_ctx)) {
+        APOLLO_ASSERT2(false, "SWAPCONTEXT FAILED: ");
+    }
 }
 
 // 设置当前的运行协程
@@ -186,6 +200,8 @@ void Fiber::MainFunc() {
     Fiber::ptr cur = GetThis();         // 智能指针引用数 +1
     APOLLO_ASSERT(cur);
 
+    bool use_caller = cur->m_caller;
+
     try {
         cur->m_cb();
         cur->m_cb = nullptr;
@@ -205,10 +221,15 @@ void Fiber::MainFunc() {
     auto raw_ptr = cur.get();
     cur.reset();                    // 将智能指针cur的引用数清零（否则cur将永远不会释放）
     
-    raw_ptr->swapOut();             // 需要手动切换回主协程
+    // 注意当use_caller为true的时候，如果还是用swapOut的话，只会mainFiber和自身循环切换，导致没法结束
+    if(use_caller) {
+        raw_ptr->back();                // 需要手动切换回主协程
+    } else {
+        raw_ptr->swapOut();             // 需要手动切换回主协程
+    }
 
     // 不会回到此处，因此加入断言判断
-    APOLLO_ASSERT2(false, "NEVER REACJ HERE, FIBER ID: " + std::to_string(raw_ptr->getId()));
+    APOLLO_ASSERT2(false, "NEVER REACH HERE, FIBER ID: " + std::to_string(raw_ptr->getId()));
 }
 
 // 返回协程id

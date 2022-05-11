@@ -17,6 +17,7 @@ CMakeFiles/apollo.dir/src/fiber.cc.o: src/log.h
 CMakeFiles/apollo.dir/src/fiber.cc.o: src/macro.h
 CMakeFiles/apollo.dir/src/fiber.cc.o: src/mutex.h
 CMakeFiles/apollo.dir/src/fiber.cc.o: src/noncopyable.h
+CMakeFiles/apollo.dir/src/fiber.cc.o: src/scheduler.h
 CMakeFiles/apollo.dir/src/fiber.cc.o: src/singleton.h
 CMakeFiles/apollo.dir/src/fiber.cc.o: src/thread.h
 CMakeFiles/apollo.dir/src/fiber.cc.o: src/util.h
@@ -29,6 +30,21 @@ CMakeFiles/apollo.dir/src/log.cc.o: src/noncopyable.h
 CMakeFiles/apollo.dir/src/log.cc.o: src/singleton.h
 CMakeFiles/apollo.dir/src/log.cc.o: src/thread.h
 CMakeFiles/apollo.dir/src/log.cc.o: src/util.h
+
+CMakeFiles/apollo.dir/src/mutex.cc.o: src/mutex.cc
+CMakeFiles/apollo.dir/src/mutex.cc.o: src/mutex.h
+CMakeFiles/apollo.dir/src/mutex.cc.o: src/noncopyable.h
+
+CMakeFiles/apollo.dir/src/scheduler.cc.o: src/fiber.h
+CMakeFiles/apollo.dir/src/scheduler.cc.o: src/log.h
+CMakeFiles/apollo.dir/src/scheduler.cc.o: src/macro.h
+CMakeFiles/apollo.dir/src/scheduler.cc.o: src/mutex.h
+CMakeFiles/apollo.dir/src/scheduler.cc.o: src/noncopyable.h
+CMakeFiles/apollo.dir/src/scheduler.cc.o: src/scheduler.cc
+CMakeFiles/apollo.dir/src/scheduler.cc.o: src/scheduler.h
+CMakeFiles/apollo.dir/src/scheduler.cc.o: src/singleton.h
+CMakeFiles/apollo.dir/src/scheduler.cc.o: src/thread.h
+CMakeFiles/apollo.dir/src/scheduler.cc.o: src/util.h
 
 CMakeFiles/apollo.dir/src/thread.cc.o: src/log.h
 CMakeFiles/apollo.dir/src/thread.cc.o: src/mutex.h

@@ -46,6 +46,7 @@ Thread::Thread(std::function<void()> cb, const std::string& name)
         throw std::logic_error("PTHREAD CREATE THREAD ERROR");
     }
     
+    m_semaphore.wait();     // 获取信号量
 }
 
 Thread::~Thread() {
@@ -79,6 +80,8 @@ void* Thread::run(void* arg) {
     std::function<void()> cb;
 
     cb.swap(thread->m_cb);
+
+    thread->m_semaphore.notify();   // 释放信号量
 
     cb();
 

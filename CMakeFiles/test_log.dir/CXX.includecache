@@ -71,6 +71,8 @@ pthread.h
 -
 noncopyable.h
 /mnt/h/workSpace/c_cpp_projects/apollo/src/noncopyable.h
+mutex.h
+/mnt/h/workSpace/c_cpp_projects/apollo/src/mutex.h
 
 /mnt/h/workSpace/c_cpp_projects/apollo/src/util.h
 sys/syscall.h

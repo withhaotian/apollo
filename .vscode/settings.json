@@ -41,6 +41,7 @@
         "ctime": "cpp",
         "unordered_set": "cpp",
         "ratio": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "atomic": "cpp"
     }
 }

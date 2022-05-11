@@ -25,6 +25,8 @@ macro.h
 /mnt/h/workSpace/c_cpp_projects/apollo/src/macro.h
 fiber.h
 /mnt/h/workSpace/c_cpp_projects/apollo/src/fiber.h
+scheduler.h
+/mnt/h/workSpace/c_cpp_projects/apollo/src/scheduler.h
 
 /mnt/h/workSpace/c_cpp_projects/apollo/src/config.h
 memory
@@ -63,8 +65,6 @@ ucontext.h
 -
 functional
 -
-thread.h
-/mnt/h/workSpace/c_cpp_projects/apollo/src/thread.h
 
 /mnt/h/workSpace/c_cpp_projects/apollo/src/log.h
 string
@@ -126,6 +126,16 @@ noncopyable.h
 
 /mnt/h/workSpace/c_cpp_projects/apollo/src/noncopyable.h
 
+/mnt/h/workSpace/c_cpp_projects/apollo/src/scheduler.h
+memory
+-
+vector
+-
+fiber.h
+/mnt/h/workSpace/c_cpp_projects/apollo/src/fiber.h
+thread.h
+/mnt/h/workSpace/c_cpp_projects/apollo/src/thread.h
+
 /mnt/h/workSpace/c_cpp_projects/apollo/src/singleton.h
 memory
 -
@@ -141,6 +151,8 @@ pthread.h
 -
 noncopyable.h
 /mnt/h/workSpace/c_cpp_projects/apollo/src/noncopyable.h
+mutex.h
+/mnt/h/workSpace/c_cpp_projects/apollo/src/mutex.h
 
 /mnt/h/workSpace/c_cpp_projects/apollo/src/util.h
 sys/syscall.h
