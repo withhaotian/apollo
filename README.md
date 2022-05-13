@@ -26,7 +26,7 @@ Vim (Vim的自定义配置可参考https://github.com/amix/vimrc)
 
 5. 协程调度模块【*100%*】
 
-6. I/O协程调度模块【TODO】
+6. I/O协程调度模块【*100%*】
 
 7. Hook模块【TODO】
 
