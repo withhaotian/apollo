@@ -22,6 +22,18 @@ CMakeFiles/apollo.dir/src/fiber.cc.o: src/singleton.h
 CMakeFiles/apollo.dir/src/fiber.cc.o: src/thread.h
 CMakeFiles/apollo.dir/src/fiber.cc.o: src/util.h
 
+CMakeFiles/apollo.dir/src/iomanager.cc.o: src/fiber.h
+CMakeFiles/apollo.dir/src/iomanager.cc.o: src/iomanager.cc
+CMakeFiles/apollo.dir/src/iomanager.cc.o: src/iomanager.h
+CMakeFiles/apollo.dir/src/iomanager.cc.o: src/log.h
+CMakeFiles/apollo.dir/src/iomanager.cc.o: src/macro.h
+CMakeFiles/apollo.dir/src/iomanager.cc.o: src/mutex.h
+CMakeFiles/apollo.dir/src/iomanager.cc.o: src/noncopyable.h
+CMakeFiles/apollo.dir/src/iomanager.cc.o: src/scheduler.h
+CMakeFiles/apollo.dir/src/iomanager.cc.o: src/singleton.h
+CMakeFiles/apollo.dir/src/iomanager.cc.o: src/thread.h
+CMakeFiles/apollo.dir/src/iomanager.cc.o: src/util.h
+
 CMakeFiles/apollo.dir/src/log.cc.o: src/config.h
 CMakeFiles/apollo.dir/src/log.cc.o: src/log.cc
 CMakeFiles/apollo.dir/src/log.cc.o: src/log.h

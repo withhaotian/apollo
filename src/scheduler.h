@@ -91,6 +91,9 @@ protected:
     // 协程无任务可调度时切换回ide协程
     virtual void idle();
 
+    // 查看是否还有空闲线程
+    bool hasIdleThreads() const {return m_idleThreadCount > 0;}
+
 private:
     // 协程调度启动(无锁)
     template<class FiberOrCb>

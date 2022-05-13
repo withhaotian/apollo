@@ -4,6 +4,7 @@
 CMakeFiles/test_scheduler.dir/tests/test_scheduler.cc.o: src/apollo.h
 CMakeFiles/test_scheduler.dir/tests/test_scheduler.cc.o: src/config.h
 CMakeFiles/test_scheduler.dir/tests/test_scheduler.cc.o: src/fiber.h
+CMakeFiles/test_scheduler.dir/tests/test_scheduler.cc.o: src/iomanager.h
 CMakeFiles/test_scheduler.dir/tests/test_scheduler.cc.o: src/log.h
 CMakeFiles/test_scheduler.dir/tests/test_scheduler.cc.o: src/macro.h
 CMakeFiles/test_scheduler.dir/tests/test_scheduler.cc.o: src/mutex.h

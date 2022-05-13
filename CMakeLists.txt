@@ -18,6 +18,7 @@ set(LIB_SRC
 	src/fiber.cc
 	src/scheduler.cc
 	src/mutex.cc
+	src/iomanager.cc
 )
 
 add_library(apollo SHARED ${LIB_SRC})
@@ -59,6 +60,11 @@ add_executable(test_scheduler tests/test_scheduler.cc)
 force_redefine_file_macro_for_sources(test_scheduler)  # __FILE__
 add_dependencies(test_scheduler apollo)
 target_link_libraries(test_scheduler ${LIBS})
+
+add_executable(test_iomanager tests/test_iomanager.cc)
+force_redefine_file_macro_for_sources(test_iomanager)  # __FILE__
+add_dependencies(test_iomanager apollo)
+target_link_libraries(test_iomanager ${LIBS})
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

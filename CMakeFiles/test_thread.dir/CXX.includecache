@@ -27,6 +27,8 @@ fiber.h
 /mnt/h/workSpace/c_cpp_projects/apollo/src/fiber.h
 scheduler.h
 /mnt/h/workSpace/c_cpp_projects/apollo/src/scheduler.h
+iomanager.h
+/mnt/h/workSpace/c_cpp_projects/apollo/src/iomanager.h
 
 /mnt/h/workSpace/c_cpp_projects/apollo/src/config.h
 memory
@@ -65,6 +67,10 @@ ucontext.h
 -
 functional
 -
+
+/mnt/h/workSpace/c_cpp_projects/apollo/src/iomanager.h
+scheduler.h
+/mnt/h/workSpace/c_cpp_projects/apollo/src/scheduler.h
 
 /mnt/h/workSpace/c_cpp_projects/apollo/src/log.h
 string

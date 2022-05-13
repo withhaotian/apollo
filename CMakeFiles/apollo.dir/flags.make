@@ -22,3 +22,5 @@ CXX_INCLUDES = -I/mnt/h/workSpace/c_cpp_projects/apollo/.
 
 # Custom defines: CMakeFiles/apollo.dir/src/mutex.cc.o_DEFINES = __FILE__="src/mutex.cc"
 
+# Custom defines: CMakeFiles/apollo.dir/src/iomanager.cc.o_DEFINES = __FILE__="src/iomanager.cc"
+
