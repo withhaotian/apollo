@@ -19,6 +19,7 @@ set(LIB_SRC
 	src/scheduler.cc
 	src/mutex.cc
 	src/iomanager.cc
+	src/timer.cc
 )
 
 add_library(apollo SHARED ${LIB_SRC})

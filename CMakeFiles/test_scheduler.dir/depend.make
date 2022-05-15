@@ -12,6 +12,7 @@ CMakeFiles/test_scheduler.dir/tests/test_scheduler.cc.o: src/noncopyable.h
 CMakeFiles/test_scheduler.dir/tests/test_scheduler.cc.o: src/scheduler.h
 CMakeFiles/test_scheduler.dir/tests/test_scheduler.cc.o: src/singleton.h
 CMakeFiles/test_scheduler.dir/tests/test_scheduler.cc.o: src/thread.h
+CMakeFiles/test_scheduler.dir/tests/test_scheduler.cc.o: src/timer.h
 CMakeFiles/test_scheduler.dir/tests/test_scheduler.cc.o: src/util.h
 CMakeFiles/test_scheduler.dir/tests/test_scheduler.cc.o: tests/test_scheduler.cc
 

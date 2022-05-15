@@ -12,6 +12,7 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: src/noncopyable.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: src/scheduler.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: src/singleton.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: src/thread.h
+CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: src/timer.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: src/util.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: tests/test_fiber.cc
 

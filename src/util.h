@@ -32,6 +32,11 @@ void Backtrace(std::vector<std::string>& bt, int size = 64, int skip = 1);
 // skip 跳过栈顶的层数
 // prefix 前缀输出内容
 std::string BacktraceToString(int size = 64, int skip = 2, const std::string& prefix = "");
-}
+
+// 获取毫秒
+uint64_t GetCurrentMS();
+
+
+}   // namespace apollo
 
 #endif

@@ -2,11 +2,12 @@
 #define __APOLLO_IOMANAGER_H__
 
 #include "scheduler.h"
+#include "timer.h"
 
 namespace apollo
 {
 
-class IOManager : public Scheduler {
+class IOManager : public Scheduler, public TimerManager {
 public:
     typedef std::shared_ptr<IOManager> ptr;
     typedef RWMutex RWMutexType;
@@ -77,12 +78,21 @@ protected:
 
     // 判断是否可以停止
     bool stopping() override;
+    /**
+     * @brief 判断是否可以停止
+     * @param[out] timeout 最近要发生的定时器事件间隔
+     * @return 返回是否可以停止
+     */
+    bool stopping(uint64_t& timeout);
 
     // 协程无任务可调度时切换回ide协程
     void idle() override;
 
     // 重置socket句柄上下文的容器大小
     void resizeContext(size_t size);
+
+    // 当有新的定时器插入到了列表首部，需要通知调度器
+    void onTimerInsertAtFront() override;
 
 private:
     // IOMaager 读写锁

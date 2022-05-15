@@ -12,6 +12,7 @@ CMakeFiles/test_thread.dir/tests/test_thread.cc.o: src/noncopyable.h
 CMakeFiles/test_thread.dir/tests/test_thread.cc.o: src/scheduler.h
 CMakeFiles/test_thread.dir/tests/test_thread.cc.o: src/singleton.h
 CMakeFiles/test_thread.dir/tests/test_thread.cc.o: src/thread.h
+CMakeFiles/test_thread.dir/tests/test_thread.cc.o: src/timer.h
 CMakeFiles/test_thread.dir/tests/test_thread.cc.o: src/util.h
 CMakeFiles/test_thread.dir/tests/test_thread.cc.o: tests/test_thread.cc
 

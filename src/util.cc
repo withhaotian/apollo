@@ -4,6 +4,7 @@
 #include <iostream>
 #include <unistd.h> 
 #include <sstream>
+#include <time.h>
 #include <execinfo.h>
 
 #include "util.h"
@@ -72,4 +73,12 @@ std::string BacktraceToString(int size, int skip, const std::string& prefix) {
     }
     return ss.str();
 }
+
+// 获取当前时间
+uint64_t GetCurrentMS() {
+    struct timespec ts = {0};
+    clock_gettime(CLOCK_MONOTONIC_RAW, &ts);
+    return ts.tv_sec * 1000 + ts.tv_nsec / 1000000;
+}
+
 }

@@ -8,7 +8,7 @@
 #include <iostream>
 #include <sys/epoll.h>
 
-apollo::Logger::ptr g_logger = APOLLO_LOG_ROOT();
+static apollo::Logger::ptr g_logger = APOLLO_LOG_ROOT();
 
 int sock = 0;
 
@@ -49,7 +49,20 @@ void test1() {
     iom.schedule(&test_fiber);
 }
 
+void test_timer() {
+    apollo::IOManager iom(2, false);
+    apollo::Timer::ptr timer = iom.addTimer(1000, [&timer](){
+        static int i = 0;
+        APOLLO_LOG_INFO(g_logger) << "hello timer i = " << i;
+        if(++i == 3) {
+            // s_timer->reset(2000, true);
+            timer->cancel();
+        }
+    }, true);
+}
+
 int main(int agrc, char** argv) {
-    test1();
+    // test1();
+    test_timer();
     return 0;
 }

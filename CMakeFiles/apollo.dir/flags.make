@@ -24,3 +24,5 @@ CXX_INCLUDES = -I/mnt/h/workSpace/c_cpp_projects/apollo/.
 
 # Custom defines: CMakeFiles/apollo.dir/src/iomanager.cc.o_DEFINES = __FILE__="src/iomanager.cc"
 
+# Custom defines: CMakeFiles/apollo.dir/src/timer.cc.o_DEFINES = __FILE__="src/timer.cc"
+

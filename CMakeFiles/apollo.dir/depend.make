@@ -32,6 +32,7 @@ CMakeFiles/apollo.dir/src/iomanager.cc.o: src/noncopyable.h
 CMakeFiles/apollo.dir/src/iomanager.cc.o: src/scheduler.h
 CMakeFiles/apollo.dir/src/iomanager.cc.o: src/singleton.h
 CMakeFiles/apollo.dir/src/iomanager.cc.o: src/thread.h
+CMakeFiles/apollo.dir/src/iomanager.cc.o: src/timer.h
 CMakeFiles/apollo.dir/src/iomanager.cc.o: src/util.h
 
 CMakeFiles/apollo.dir/src/log.cc.o: src/config.h
@@ -65,6 +66,15 @@ CMakeFiles/apollo.dir/src/thread.cc.o: src/singleton.h
 CMakeFiles/apollo.dir/src/thread.cc.o: src/thread.cc
 CMakeFiles/apollo.dir/src/thread.cc.o: src/thread.h
 CMakeFiles/apollo.dir/src/thread.cc.o: src/util.h
+
+CMakeFiles/apollo.dir/src/timer.cc.o: src/log.h
+CMakeFiles/apollo.dir/src/timer.cc.o: src/mutex.h
+CMakeFiles/apollo.dir/src/timer.cc.o: src/noncopyable.h
+CMakeFiles/apollo.dir/src/timer.cc.o: src/singleton.h
+CMakeFiles/apollo.dir/src/timer.cc.o: src/thread.h
+CMakeFiles/apollo.dir/src/timer.cc.o: src/timer.cc
+CMakeFiles/apollo.dir/src/timer.cc.o: src/timer.h
+CMakeFiles/apollo.dir/src/timer.cc.o: src/util.h
 
 CMakeFiles/apollo.dir/src/util.cc.o: src/fiber.h
 CMakeFiles/apollo.dir/src/util.cc.o: src/log.h

@@ -247,19 +247,28 @@ void IOManager::tickle() {
         return;
     }
 
-    int rt = write(m_tickleFds[1], "X", 1);
+    int rt = write(m_tickleFds[1], "T", 1);
     APOLLO_ASSERT(rt == 1);
 }
 
 // 判断是否可以停止
 bool IOManager::stopping() {
-    return Scheduler::stopping()
+    uint64_t timeout = 0;
+    return stopping(timeout);
+}
+
+bool IOManager::stopping(uint64_t& timeout) {
+    timeout = getNextTimer();
+    return timeout == ~0ull
+        && Scheduler::stopping()
         && m_pendingEventCount == 0;
 }
 
 // 协程无任务可调度时切换回ide协程
 void IOManager::idle() {
     APOLLO_LOG_DEBUG(g_logger) << "idle";
+
+    // 一次epoll_wait最多检测256个就绪事件，如果就绪事件超过了这个数，那么会在下轮epoll_wati继续处理
     const uint64_t MAX_EVNETS = 256;
     epoll_event* events = new epoll_event[MAX_EVNETS]();
     std::shared_ptr<epoll_event> shared_events(events, [](epoll_event* ptr){
@@ -268,14 +277,27 @@ void IOManager::idle() {
 
     while(true) {
         uint64_t next_timeout = 0;
-        if(APOLLO_UNLIKELY(stopping())) {
+        if(APOLLO_UNLIKELY(stopping(next_timeout))) {
             APOLLO_LOG_INFO(g_logger) << "name=" << getName()
                                     << " idle stopping exit";
             break;
         }
+        // static const int MAX_TIMEOUT = 5000;
+        // int rt = epoll_wait(m_epfd, events, MAX_EVNETS, MAX_TIMEOUT);
+        // if(rt < 0) {
+        //     if(errno == EINTR) {
+        //         continue;
+        //     }
+        //     APOLLO_LOG_ERROR(g_logger) << "epoll_wait(" << m_epfd << ") (rt="
+        //                             << rt << ") (errno=" << errno << ") (errstr:" << strerror(errno) << ")";
+        //     break;
+        // }
+        
+
+        // 阻塞在epoll_wait上，等待事件发生
         int rt = 0;
         do {
-            static const int MAX_TIMEOUT = 5000;
+            static const int MAX_TIMEOUT = 3000;
             if(next_timeout != ~0ull) {
                 next_timeout = (int)next_timeout > MAX_TIMEOUT
                             ? MAX_TIMEOUT : next_timeout;
@@ -287,20 +309,25 @@ void IOManager::idle() {
             if(rt < 0 && errno == EINTR) {
             } else {
                 break;
+            }
         } while(true);
 
-        // std::vector<std::function<void()>> cbs;
-        // if(!cbs.empty()) {
-        //     //SYLAR_LOG_DEBUG(g_logger) << "on timer cbs.size=" << cbs.size();
-        //     schedule(cbs.begin(), cbs.end());
-        //     cbs.clear();
-        // }
+        // 拿出所有已经超时的定时器，其cb全部执行
+        std::vector<std::function<void()>> cbs;
+        listExpiredCbs(cbs);
+        if(!cbs.empty()) {
+            // APOLLO_LOG_DEBUG(g_logger) << "size of cbs = " << cbs.size();
+            schedule(cbs.begin(), cbs.end());
+            cbs.clear();
+        }
 
         for(int i = 0; i < rt; ++i) {
             epoll_event& event = events[i];
             if(event.data.fd == m_tickleFds[0]) {
+                // ticklefd[0]用于通知协程调度，这时只需要把管道里的内容读完即可，本轮idle结束Scheduler::run会重新执行协程调度
                 uint8_t dummy[256];
-                while(read(m_tickleFds[0], dummy, sizeof(dummy)) > 0);
+                while(read(m_tickleFds[0], dummy, sizeof(dummy)) > 0)
+                    ;
                 continue;
             }
 
@@ -309,10 +336,13 @@ void IOManager::idle() {
             if(event.events & (EPOLLERR | EPOLLHUP)) {
                 event.events |= (EPOLLIN | EPOLLOUT) & fd_ctx->events;
             }
+
             int real_events = NONE;
+
             if(event.events & EPOLLIN) {
                 real_events |= READ;
             }
+
             if(event.events & EPOLLOUT) {
                 real_events |= WRITE;
             }
@@ -396,6 +426,11 @@ void IOManager::FdContext::triggerEvent(Event event) {
     }
     ctx.scheduler = nullptr;
     return;
+}
+
+// 当有新的定时器插入到了列表首部，需要通知调度器
+void IOManager::onTimerInsertAtFront() {
+    tickle();
 }
 
 }
