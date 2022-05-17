@@ -1,7 +1,7 @@
 #include "../src/apollo.h"
 #include <vector>
 
-apollo::Logger::ptr g_logger = APOLLO_LOG_ROOT();
+static apollo::Logger::ptr g_logger = APOLLO_LOG_ROOT();
 
 void run_fiber()
 {
@@ -17,6 +17,7 @@ void test_fiber()
     {
         apollo::Fiber::GetThis();
         APOLLO_LOG_INFO(g_logger) << "{test_fiber} MAIN Fiber BEGINS";
+        // APOLLO_LOG_INFO(g_logger) << "^^^^^ Fiber ID: " << apollo::GetFiberId();
         apollo::Fiber::ptr fiber(new apollo::Fiber(run_fiber));
         fiber->swapIn();
         APOLLO_LOG_INFO(g_logger) << "{test_fiber} main after swapIn";
@@ -30,6 +31,7 @@ void test_fiber()
 int main(int agrc, char** agrv)
 {
     apollo::Thread::SetName("main");
+    APOLLO_LOG_INFO(g_logger) << apollo::Thread::GetName();
 
     std::vector<apollo::Thread::ptr> thrs;
     for(int i = 0; i < 3; ++i) {

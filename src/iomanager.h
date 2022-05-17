@@ -58,7 +58,7 @@ public:
     ~IOManager();
 
     // 添加事件， 0 - success， -1 - error
-    int addEvent(int fd, Event event, std::function<void()> cb);
+    int addEvent(int fd, Event event, std::function<void()> cb = nullptr);
     
     // 删除事件
     bool delEvent(int fd, Event event);

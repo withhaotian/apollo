@@ -47,6 +47,9 @@ public:
     // 停止调度器
     void stop();
 
+    // 获取任务队列任务数
+    const int getNumTasks() const {return m_fibers.size();}
+
     // 协程调度
     // 默认-1即为不指定执行的线程
     template<class FiberOrCb>

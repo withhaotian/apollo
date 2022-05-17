@@ -1,6 +1,7 @@
 #include "scheduler.h"
 #include "log.h"
 #include "macro.h"
+#include "hook.h"
 
 namespace apollo
 {
@@ -36,7 +37,7 @@ Scheduler::Scheduler(size_t threads, bool use_caller, const std::string& name)
         m_rootThread = -1;
     }
 
-    m_threadCount = --threads;
+    m_threadCount = threads;
 }
 
 Scheduler::~Scheduler() {
@@ -90,6 +91,8 @@ void Scheduler::stop() {
     // 自动停止设置为true
     m_autoStop = true;
 
+    APOLLO_LOG_DEBUG(g_logger) << "~IOManager, execute Scheduler::stop() ---";
+
     // 如果存在主协程，并且线程数为0，主协程状态为TERM/INIT，则停止
     if(m_rootFiber && m_threadCount == 0
         && (m_rootFiber->getState() == apollo::Fiber::INIT
@@ -104,13 +107,13 @@ void Scheduler::stop() {
         }
     }
 
-    m_stopping = true;
-
-    if(m_rootThread != -1) {    //  指定线程，则默认为当前调度器
+    if(m_rootThread != -1) {    //  是否指定线程，否则默认为当前调度器
         APOLLO_ASSERT(GetThis() == this);
     } else {
         APOLLO_ASSERT(GetThis() != this);
     }
+
+    m_stopping = true;
 
     for(size_t i = 0; i < m_threadCount; i++) {
         tickle();
@@ -125,7 +128,6 @@ void Scheduler::stop() {
     }
 
     std::vector<Thread::ptr> thrs;
-
     {
         MutexType::Lock lock(m_mutex);
         thrs.swap(m_threads);
@@ -140,6 +142,7 @@ void Scheduler::stop() {
 // 执行调度器
 void Scheduler::run() {
     APOLLO_LOG_DEBUG(g_logger) << "SCHEDULER: " << m_name << " RUNNING";
+    set_hook_enable(true);  // 将hook设置为true，实现异步
     // 切换为当前调度器
     SetThis(this);
     
@@ -184,7 +187,7 @@ void Scheduler::run() {
                 tk = *it;
                 is_active = true;
                 ++ m_activeThreadCount;
-                m_fibers.erase(it++);
+                m_fibers.erase(it);
                 break;
             }
 
@@ -197,8 +200,9 @@ void Scheduler::run() {
 
         // 进入处理任务的逻辑部分
         // 1. 当前为协程且状态合法
-        if(tk.fiber && (tk.fiber->getState() == apollo::Fiber::INIT
-                        || tk.fiber->getState() == apollo::Fiber::TERM)) {
+        // 【fix a bug here】什么状态为合法？——当前状态不为结束状态或者异常，就是处于一个合法状态
+        if(tk.fiber && (tk.fiber->getState() != apollo::Fiber::EXCEPT
+                        || tk.fiber->getState() != apollo::Fiber::TERM)) {
             // 执行当前协程
             tk.fiber->swapIn();     // 中断，执行协程任务
             --m_activeThreadCount;  // 中断结束，当前协程已经执行完成

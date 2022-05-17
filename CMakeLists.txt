@@ -20,16 +20,24 @@ set(LIB_SRC
 	src/mutex.cc
 	src/iomanager.cc
 	src/timer.cc
+	src/hook.cc
+	src/fdmanager.cc
 )
 
 add_library(apollo SHARED ${LIB_SRC})
 force_redefine_file_macro_for_sources(apollo)  # __FILE__
 find_library(YAMLCPP yaml-cpp)
+find_library(PTHREAD pthread)
+#set(LIBS ${LIBS} sylar)
+#set(LIBS ${LIBS} dl)
+#set(LIBS ${LIBS} ${YAMLCPP})
+#set(LIBS ${LIBS} ${PTHREAD})
 
 set(LIBS
-	apollo
-    yaml-cpp
-	pthread
+		apollo
+		dl
+		yaml-cpp
+		pthread
     )
 
 add_executable(test_log tests/test_log.cc)
@@ -66,6 +74,11 @@ add_executable(test_iomanager tests/test_iomanager.cc)
 force_redefine_file_macro_for_sources(test_iomanager)  # __FILE__
 add_dependencies(test_iomanager apollo)
 target_link_libraries(test_iomanager ${LIBS})
+
+add_executable(test_hook tests/test_hook.cc)
+force_redefine_file_macro_for_sources(test_hook)  # __FILE__
+add_dependencies(test_hook apollo)
+target_link_libraries(test_hook ${LIBS})
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

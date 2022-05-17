@@ -1,0 +1,1 @@
+/usr/bin/c++   -rdynamic -O0 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined  -rdynamic CMakeFiles/test_hook.dir/tests/test_hook.cc.o  -o bin/test_hook   -L/apps/sylar/lib  -Wl,-rpath,/apps/sylar/lib:/mnt/h/workSpace/c_cpp_projects/apollo/lib lib/libapollo.so -ldl -lyaml-cpp -lpthread 

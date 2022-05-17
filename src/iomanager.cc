@@ -41,7 +41,7 @@ IOManager::IOManager(size_t threads, bool use_caller, const std::string& name)
     // fcntl()  performs  one of the operations described 
     // below on the open file descriptor fd.  The operation is de‐
     // termined by cmd.
-    rt = fcntl(m_tickleFds[0], F_SETFL, O_NONBLOCK);
+    rt = fcntl(m_tickleFds[0], F_SETFL, O_NONBLOCK);        // 设置非阻塞
     APOLLO_ASSERT(!rt);
 
     // epoll的事件注册函数，它不同与select()是在监听事件时告诉内核要监听什么类型的事件，
@@ -73,7 +73,7 @@ IOManager::~IOManager() {
     }
 }
 
-// 添加事件
+// 添加事件，成功返回0，失败返回-1
 int IOManager::addEvent(int fd, Event event, std::function<void()> cb) {
     FdContext* fd_ctx = nullptr;
     RWMutexType::ReadLock lock(m_mutex);
@@ -91,7 +91,7 @@ int IOManager::addEvent(int fd, Event event, std::function<void()> cb) {
         fd_ctx = m_fdContexts[fd];
     }
     
-    FdContext::MutexType::Lock lock2(fd_ctx->mutex);
+    FdContext::MutexType::Lock lock3(fd_ctx->mutex);
     if(APOLLO_UNLIKELY(fd_ctx->events & event)) {
         APOLLO_LOG_ERROR(g_logger) << "addEvent assert fd=" << fd
                     << " event=" << (EPOLL_EVENTS)event
@@ -123,7 +123,7 @@ int IOManager::addEvent(int fd, Event event, std::function<void()> cb) {
 
     event_ctx.scheduler = Scheduler::GetThis();
     if(cb) {
-        event_ctx.cb = std::move(cb);
+        event_ctx.cb.swap(cb);
     } else {
         event_ctx.fiber = Fiber::GetThis();
         APOLLO_ASSERT2(event_ctx.fiber->getState() == Fiber::EXEC
@@ -278,26 +278,15 @@ void IOManager::idle() {
     while(true) {
         uint64_t next_timeout = 0;
         if(APOLLO_UNLIKELY(stopping(next_timeout))) {
-            APOLLO_LOG_INFO(g_logger) << "name=" << getName()
+            APOLLO_LOG_INFO(g_logger) << "name = " << getName()
                                     << " idle stopping exit";
             break;
         }
-        // static const int MAX_TIMEOUT = 5000;
-        // int rt = epoll_wait(m_epfd, events, MAX_EVNETS, MAX_TIMEOUT);
-        // if(rt < 0) {
-        //     if(errno == EINTR) {
-        //         continue;
-        //     }
-        //     APOLLO_LOG_ERROR(g_logger) << "epoll_wait(" << m_epfd << ") (rt="
-        //                             << rt << ") (errno=" << errno << ") (errstr:" << strerror(errno) << ")";
-        //     break;
-        // }
-        
 
         // 阻塞在epoll_wait上，等待事件发生
         int rt = 0;
         do {
-            static const int MAX_TIMEOUT = 3000;
+            static const int MAX_TIMEOUT = 5000;
             if(next_timeout != ~0ull) {
                 next_timeout = (int)next_timeout > MAX_TIMEOUT
                             ? MAX_TIMEOUT : next_timeout;
@@ -306,6 +295,7 @@ void IOManager::idle() {
             }
             // epoll_wait返回的是待处理事件的长度
             rt = epoll_wait(m_epfd, events, MAX_EVNETS, (int)next_timeout);
+            // APOLLO_LOG_INFO(g_logger) << "<><>Epoll_wait rt = " << rt;
             if(rt < 0 && errno == EINTR) {
             } else {
                 break;

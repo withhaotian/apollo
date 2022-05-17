@@ -84,9 +84,6 @@ bool Timer::reset(uint64_t ms, bool from_now) {
     m_ms = ms;
     m_next = start + m_ms;
     m_mgr->addTimer(shared_from_this(), lock);
-
-    m_next = apollo::GetCurrentMS() + m_ms;
-    m_mgr->m_timers.insert(shared_from_this());
     return true;
 }
 
@@ -158,7 +155,7 @@ uint64_t TimerManager::getNextTimer() {
     if(it->m_next <= now_ms) {
         return 0;
     } else {
-        return it->m_next < now_ms;
+        return it->m_next - now_ms;
     }
 }
 
@@ -182,7 +179,7 @@ void TimerManager::listExpiredCbs(std::vector<std::function<void()>>& cbs) {
     }
 
     // 写锁
-    RWMutexType::ReadLock lock(m_mutex);
+    RWMutexType::WriteLock lock(m_mutex);
     if(m_timers.empty()) {
         return;
     }

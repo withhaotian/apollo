@@ -23,10 +23,10 @@ public:
     ~Thread();
 
     // 获取线程id
-    pid_t getId() const {return m_id;}
+    const pid_t getId() const {return m_id;}
 
     // 获取线程名称
-    std::string getName() const {return m_name;}
+    const std::string& getName() const {return m_name;}
 
     // 等待线程执行完成
     void join();

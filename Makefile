@@ -114,6 +114,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test_hook
+
+# Build rule for target.
+test_hook: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_hook
+.PHONY : test_hook
+
+# fast build rule for target.
+test_hook/fast:
+	$(MAKE) -f CMakeFiles/test_hook.dir/build.make CMakeFiles/test_hook.dir/build
+.PHONY : test_hook/fast
+
+#=============================================================================
 # Target rules for targets named test_iomanager
 
 # Build rule for target.
@@ -244,6 +257,33 @@ src/config.cc.s:
 	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/config.cc.s
 .PHONY : src/config.cc.s
 
+src/fdmanager.o: src/fdmanager.cc.o
+
+.PHONY : src/fdmanager.o
+
+# target to build an object file
+src/fdmanager.cc.o:
+	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/fdmanager.cc.o
+.PHONY : src/fdmanager.cc.o
+
+src/fdmanager.i: src/fdmanager.cc.i
+
+.PHONY : src/fdmanager.i
+
+# target to preprocess a source file
+src/fdmanager.cc.i:
+	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/fdmanager.cc.i
+.PHONY : src/fdmanager.cc.i
+
+src/fdmanager.s: src/fdmanager.cc.s
+
+.PHONY : src/fdmanager.s
+
+# target to generate assembly for a file
+src/fdmanager.cc.s:
+	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/fdmanager.cc.s
+.PHONY : src/fdmanager.cc.s
+
 src/fiber.o: src/fiber.cc.o
 
 .PHONY : src/fiber.o
@@ -270,6 +310,33 @@ src/fiber.s: src/fiber.cc.s
 src/fiber.cc.s:
 	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/fiber.cc.s
 .PHONY : src/fiber.cc.s
+
+src/hook.o: src/hook.cc.o
+
+.PHONY : src/hook.o
+
+# target to build an object file
+src/hook.cc.o:
+	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/hook.cc.o
+.PHONY : src/hook.cc.o
+
+src/hook.i: src/hook.cc.i
+
+.PHONY : src/hook.i
+
+# target to preprocess a source file
+src/hook.cc.i:
+	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/hook.cc.i
+.PHONY : src/hook.cc.i
+
+src/hook.s: src/hook.cc.s
+
+.PHONY : src/hook.s
+
+# target to generate assembly for a file
+src/hook.cc.s:
+	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/hook.cc.s
+.PHONY : src/hook.cc.s
 
 src/iomanager.o: src/iomanager.cc.o
 
@@ -514,6 +581,33 @@ tests/test_fiber.cc.s:
 	$(MAKE) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/tests/test_fiber.cc.s
 .PHONY : tests/test_fiber.cc.s
 
+tests/test_hook.o: tests/test_hook.cc.o
+
+.PHONY : tests/test_hook.o
+
+# target to build an object file
+tests/test_hook.cc.o:
+	$(MAKE) -f CMakeFiles/test_hook.dir/build.make CMakeFiles/test_hook.dir/tests/test_hook.cc.o
+.PHONY : tests/test_hook.cc.o
+
+tests/test_hook.i: tests/test_hook.cc.i
+
+.PHONY : tests/test_hook.i
+
+# target to preprocess a source file
+tests/test_hook.cc.i:
+	$(MAKE) -f CMakeFiles/test_hook.dir/build.make CMakeFiles/test_hook.dir/tests/test_hook.cc.i
+.PHONY : tests/test_hook.cc.i
+
+tests/test_hook.s: tests/test_hook.cc.s
+
+.PHONY : tests/test_hook.s
+
+# target to generate assembly for a file
+tests/test_hook.cc.s:
+	$(MAKE) -f CMakeFiles/test_hook.dir/build.make CMakeFiles/test_hook.dir/tests/test_hook.cc.s
+.PHONY : tests/test_hook.cc.s
+
 tests/test_iomanager.o: tests/test_iomanager.cc.o
 
 .PHONY : tests/test_iomanager.o
@@ -655,6 +749,7 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... test_hook"
 	@echo "... test_iomanager"
 	@echo "... test_fiber"
 	@echo "... rebuild_cache"
@@ -668,9 +763,15 @@ help:
 	@echo "... src/config.o"
 	@echo "... src/config.i"
 	@echo "... src/config.s"
+	@echo "... src/fdmanager.o"
+	@echo "... src/fdmanager.i"
+	@echo "... src/fdmanager.s"
 	@echo "... src/fiber.o"
 	@echo "... src/fiber.i"
 	@echo "... src/fiber.s"
+	@echo "... src/hook.o"
+	@echo "... src/hook.i"
+	@echo "... src/hook.s"
 	@echo "... src/iomanager.o"
 	@echo "... src/iomanager.i"
 	@echo "... src/iomanager.s"
@@ -698,6 +799,9 @@ help:
 	@echo "... tests/test_fiber.o"
 	@echo "... tests/test_fiber.i"
 	@echo "... tests/test_fiber.s"
+	@echo "... tests/test_hook.o"
+	@echo "... tests/test_hook.i"
+	@echo "... tests/test_hook.s"
 	@echo "... tests/test_iomanager.o"
 	@echo "... tests/test_iomanager.i"
 	@echo "... tests/test_iomanager.s"

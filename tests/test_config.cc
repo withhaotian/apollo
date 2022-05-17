@@ -181,7 +181,7 @@ void test_class() {
     APOLLO_LOG_INFO(APOLLO_LOG_ROOT()) << "before: " << g_person->toString();
    
     // 添加配置事件修改监听器
-    g_person->addLisiner([](const Person& old_val, const Person& new_val) {
+    g_person->addListener([](const Person& old_val, const Person& new_val) {
             APOLLO_LOG_INFO(APOLLO_LOG_ROOT()) << "|old val = " << old_val.toString()
                     << " | new val = " << new_val.toString() << "|";
             });

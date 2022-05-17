@@ -3,7 +3,9 @@
 
 CMakeFiles/test_util.dir/tests/test_util.cc.o: src/apollo.h
 CMakeFiles/test_util.dir/tests/test_util.cc.o: src/config.h
+CMakeFiles/test_util.dir/tests/test_util.cc.o: src/fdmanager.h
 CMakeFiles/test_util.dir/tests/test_util.cc.o: src/fiber.h
+CMakeFiles/test_util.dir/tests/test_util.cc.o: src/hook.h
 CMakeFiles/test_util.dir/tests/test_util.cc.o: src/iomanager.h
 CMakeFiles/test_util.dir/tests/test_util.cc.o: src/log.h
 CMakeFiles/test_util.dir/tests/test_util.cc.o: src/macro.h

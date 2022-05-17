@@ -742,7 +742,7 @@ apollo::ConfigVar<std::set<LogDefine>>::ptr g_log_defines =
 // 全局日志监听器，初始化于manin函数发生之前
 struct LogIniter {
     LogIniter() {
-        g_log_defines->addLisiner(
+        g_log_defines->addListener(
             [](const std::set<LogDefine>& old_vals, const std::set<LogDefine>& new_vals) {
         APOLLO_LOG_INFO(APOLLO_LOG_ROOT()) << "ON LOG CONFIG CHANGES";
         // 监听logger配置的变更

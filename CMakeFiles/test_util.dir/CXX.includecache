@@ -31,6 +31,10 @@ iomanager.h
 /mnt/h/workSpace/c_cpp_projects/apollo/src/iomanager.h
 timer.h
 /mnt/h/workSpace/c_cpp_projects/apollo/src/timer.h
+hook.h
+/mnt/h/workSpace/c_cpp_projects/apollo/src/hook.h
+fdmanager.h
+/mnt/h/workSpace/c_cpp_projects/apollo/src/fdmanager.h
 
 /mnt/h/workSpace/c_cpp_projects/apollo/src/config.h
 memory
@@ -62,12 +66,38 @@ thread.h
 mutex.h
 /mnt/h/workSpace/c_cpp_projects/apollo/src/mutex.h
 
+/mnt/h/workSpace/c_cpp_projects/apollo/src/fdmanager.h
+memory
+-
+vector
+-
+thread.h
+/mnt/h/workSpace/c_cpp_projects/apollo/src/thread.h
+singleton.h
+/mnt/h/workSpace/c_cpp_projects/apollo/src/singleton.h
+
 /mnt/h/workSpace/c_cpp_projects/apollo/src/fiber.h
 memory
 -
 ucontext.h
 -
 functional
+-
+
+/mnt/h/workSpace/c_cpp_projects/apollo/src/hook.h
+fcntl.h
+-
+sys/ioctl.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+stdint.h
+-
+time.h
+-
+unistd.h
 -
 
 /mnt/h/workSpace/c_cpp_projects/apollo/src/iomanager.h

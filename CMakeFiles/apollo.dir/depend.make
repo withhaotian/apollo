@@ -10,6 +10,14 @@ CMakeFiles/apollo.dir/src/config.cc.o: src/singleton.h
 CMakeFiles/apollo.dir/src/config.cc.o: src/thread.h
 CMakeFiles/apollo.dir/src/config.cc.o: src/util.h
 
+CMakeFiles/apollo.dir/src/fdmanager.cc.o: src/fdmanager.cc
+CMakeFiles/apollo.dir/src/fdmanager.cc.o: src/fdmanager.h
+CMakeFiles/apollo.dir/src/fdmanager.cc.o: src/hook.h
+CMakeFiles/apollo.dir/src/fdmanager.cc.o: src/mutex.h
+CMakeFiles/apollo.dir/src/fdmanager.cc.o: src/noncopyable.h
+CMakeFiles/apollo.dir/src/fdmanager.cc.o: src/singleton.h
+CMakeFiles/apollo.dir/src/fdmanager.cc.o: src/thread.h
+
 CMakeFiles/apollo.dir/src/fiber.cc.o: src/config.h
 CMakeFiles/apollo.dir/src/fiber.cc.o: src/fiber.cc
 CMakeFiles/apollo.dir/src/fiber.cc.o: src/fiber.h
@@ -21,6 +29,22 @@ CMakeFiles/apollo.dir/src/fiber.cc.o: src/scheduler.h
 CMakeFiles/apollo.dir/src/fiber.cc.o: src/singleton.h
 CMakeFiles/apollo.dir/src/fiber.cc.o: src/thread.h
 CMakeFiles/apollo.dir/src/fiber.cc.o: src/util.h
+
+CMakeFiles/apollo.dir/src/hook.cc.o: src/config.h
+CMakeFiles/apollo.dir/src/hook.cc.o: src/fdmanager.h
+CMakeFiles/apollo.dir/src/hook.cc.o: src/fiber.h
+CMakeFiles/apollo.dir/src/hook.cc.o: src/hook.cc
+CMakeFiles/apollo.dir/src/hook.cc.o: src/hook.h
+CMakeFiles/apollo.dir/src/hook.cc.o: src/iomanager.h
+CMakeFiles/apollo.dir/src/hook.cc.o: src/log.h
+CMakeFiles/apollo.dir/src/hook.cc.o: src/macro.h
+CMakeFiles/apollo.dir/src/hook.cc.o: src/mutex.h
+CMakeFiles/apollo.dir/src/hook.cc.o: src/noncopyable.h
+CMakeFiles/apollo.dir/src/hook.cc.o: src/scheduler.h
+CMakeFiles/apollo.dir/src/hook.cc.o: src/singleton.h
+CMakeFiles/apollo.dir/src/hook.cc.o: src/thread.h
+CMakeFiles/apollo.dir/src/hook.cc.o: src/timer.h
+CMakeFiles/apollo.dir/src/hook.cc.o: src/util.h
 
 CMakeFiles/apollo.dir/src/iomanager.cc.o: src/fiber.h
 CMakeFiles/apollo.dir/src/iomanager.cc.o: src/iomanager.cc
@@ -49,6 +73,7 @@ CMakeFiles/apollo.dir/src/mutex.cc.o: src/mutex.h
 CMakeFiles/apollo.dir/src/mutex.cc.o: src/noncopyable.h
 
 CMakeFiles/apollo.dir/src/scheduler.cc.o: src/fiber.h
+CMakeFiles/apollo.dir/src/scheduler.cc.o: src/hook.h
 CMakeFiles/apollo.dir/src/scheduler.cc.o: src/log.h
 CMakeFiles/apollo.dir/src/scheduler.cc.o: src/macro.h
 CMakeFiles/apollo.dir/src/scheduler.cc.o: src/mutex.h

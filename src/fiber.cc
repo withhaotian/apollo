@@ -91,7 +91,7 @@ Fiber::~Fiber() {
             SetThis(nullptr);
         }
     }
-    APOLLO_LOG_DEBUG(g_logger) << "~DELETE FIBER ID: " << m_id
+    APOLLO_LOG_DEBUG(g_logger) << "~FIBER ID: " << m_id
                             << " | TOTAL FIBERS: " << s_fiber_count;
 }
 

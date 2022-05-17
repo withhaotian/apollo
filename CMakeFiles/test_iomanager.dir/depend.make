@@ -3,7 +3,9 @@
 
 CMakeFiles/test_iomanager.dir/tests/test_iomanager.cc.o: src/apollo.h
 CMakeFiles/test_iomanager.dir/tests/test_iomanager.cc.o: src/config.h
+CMakeFiles/test_iomanager.dir/tests/test_iomanager.cc.o: src/fdmanager.h
 CMakeFiles/test_iomanager.dir/tests/test_iomanager.cc.o: src/fiber.h
+CMakeFiles/test_iomanager.dir/tests/test_iomanager.cc.o: src/hook.h
 CMakeFiles/test_iomanager.dir/tests/test_iomanager.cc.o: src/iomanager.h
 CMakeFiles/test_iomanager.dir/tests/test_iomanager.cc.o: src/log.h
 CMakeFiles/test_iomanager.dir/tests/test_iomanager.cc.o: src/macro.h

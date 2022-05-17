@@ -1,3 +1,4 @@
+/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles/test_hook.dir
 /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles/test_iomanager.dir
 /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles/test_fiber.dir
 /mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles/rebuild_cache.dir

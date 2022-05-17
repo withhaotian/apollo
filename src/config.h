@@ -360,7 +360,7 @@ public:
     std::string getTypeName() const override {return typeid(T).name();}
     
     // 增加/删除监听器 
-    uint64_t addLisiner(const on_change_cb& cb) {
+    uint64_t addListener(const on_change_cb& cb) {
         RWMutexType::WriteLock lock(m_mutex);
         static uint64_t s_key_id = 0;  // 唯一键
         ++s_key_id;
@@ -369,14 +369,14 @@ public:
         return s_key_id;
     }
 
-    on_change_cb getLisiner(const uint64_t key) const {
+    on_change_cb addListener(const uint64_t key) const {
         RWMutexType::ReadLock lock(m_mutex);
         auto it = m_cbs.find(key);
 
         return it == m_cbs.end() ? nullptr : it->second;
     }
 
-    void delLisiner(const uint64_t key) {
+    void delListener(const uint64_t key) {
         RWMutexType::WriteLock lock(m_mutex);
         m_cbs.erase(key);
     }

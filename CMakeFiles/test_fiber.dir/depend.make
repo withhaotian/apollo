@@ -3,7 +3,9 @@
 
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: src/apollo.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: src/config.h
+CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: src/fdmanager.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: src/fiber.h
+CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: src/hook.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: src/iomanager.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: src/log.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o: src/macro.h
