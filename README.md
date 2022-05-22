@@ -30,7 +30,7 @@ Vim (Vim的自定义配置可参考https://github.com/amix/vimrc)
 
 7. Hook模块【*100%*】
 
-8. Socket模块【TODO】
+8. Socket模块【*50%*】
 
 9. ByteArray序列化模块【TODO】
 

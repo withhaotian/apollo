@@ -140,6 +140,19 @@ test_iomanager/fast:
 .PHONY : test_iomanager/fast
 
 #=============================================================================
+# Target rules for targets named test_address
+
+# Build rule for target.
+test_address: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_address
+.PHONY : test_address
+
+# fast build rule for target.
+test_address/fast:
+	$(MAKE) -f CMakeFiles/test_address.dir/build.make CMakeFiles/test_address.dir/build
+.PHONY : test_address/fast
+
+#=============================================================================
 # Target rules for targets named test_fiber
 
 # Build rule for target.
@@ -229,6 +242,33 @@ apollo: cmake_check_build_system
 apollo/fast:
 	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/build
 .PHONY : apollo/fast
+
+src/address.o: src/address.cc.o
+
+.PHONY : src/address.o
+
+# target to build an object file
+src/address.cc.o:
+	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/address.cc.o
+.PHONY : src/address.cc.o
+
+src/address.i: src/address.cc.i
+
+.PHONY : src/address.i
+
+# target to preprocess a source file
+src/address.cc.i:
+	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/address.cc.i
+.PHONY : src/address.cc.i
+
+src/address.s: src/address.cc.s
+
+.PHONY : src/address.s
+
+# target to generate assembly for a file
+src/address.cc.s:
+	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/address.cc.s
+.PHONY : src/address.cc.s
 
 src/config.o: src/config.cc.o
 
@@ -527,6 +567,33 @@ src/util.cc.s:
 	$(MAKE) -f CMakeFiles/apollo.dir/build.make CMakeFiles/apollo.dir/src/util.cc.s
 .PHONY : src/util.cc.s
 
+tests/test_address.o: tests/test_address.cc.o
+
+.PHONY : tests/test_address.o
+
+# target to build an object file
+tests/test_address.cc.o:
+	$(MAKE) -f CMakeFiles/test_address.dir/build.make CMakeFiles/test_address.dir/tests/test_address.cc.o
+.PHONY : tests/test_address.cc.o
+
+tests/test_address.i: tests/test_address.cc.i
+
+.PHONY : tests/test_address.i
+
+# target to preprocess a source file
+tests/test_address.cc.i:
+	$(MAKE) -f CMakeFiles/test_address.dir/build.make CMakeFiles/test_address.dir/tests/test_address.cc.i
+.PHONY : tests/test_address.cc.i
+
+tests/test_address.s: tests/test_address.cc.s
+
+.PHONY : tests/test_address.s
+
+# target to generate assembly for a file
+tests/test_address.cc.s:
+	$(MAKE) -f CMakeFiles/test_address.dir/build.make CMakeFiles/test_address.dir/tests/test_address.cc.s
+.PHONY : tests/test_address.cc.s
+
 tests/test_config.o: tests/test_config.cc.o
 
 .PHONY : tests/test_config.o
@@ -751,6 +818,7 @@ help:
 	@echo "... depend"
 	@echo "... test_hook"
 	@echo "... test_iomanager"
+	@echo "... test_address"
 	@echo "... test_fiber"
 	@echo "... rebuild_cache"
 	@echo "... test_util"
@@ -760,6 +828,9 @@ help:
 	@echo "... test_scheduler"
 	@echo "... test_log"
 	@echo "... apollo"
+	@echo "... src/address.o"
+	@echo "... src/address.i"
+	@echo "... src/address.s"
 	@echo "... src/config.o"
 	@echo "... src/config.i"
 	@echo "... src/config.s"
@@ -793,6 +864,9 @@ help:
 	@echo "... src/util.o"
 	@echo "... src/util.i"
 	@echo "... src/util.s"
+	@echo "... tests/test_address.o"
+	@echo "... tests/test_address.i"
+	@echo "... tests/test_address.s"
 	@echo "... tests/test_config.o"
 	@echo "... tests/test_config.i"
 	@echo "... tests/test_config.s"

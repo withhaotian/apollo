@@ -6,6 +6,28 @@
 
 #IncludeRegexTransform: 
 
+/mnt/h/workSpace/c_cpp_projects/apollo/src/address.h
+memory
+-
+string
+-
+sys/types.h
+-
+sys/socket.h
+-
+sys/un.h
+-
+arpa/inet.h
+-
+unistd.h
+-
+iostream
+-
+vector
+-
+map
+-
+
 /mnt/h/workSpace/c_cpp_projects/apollo/src/apollo.h
 log.h
 /mnt/h/workSpace/c_cpp_projects/apollo/src/log.h
@@ -35,6 +57,8 @@ hook.h
 /mnt/h/workSpace/c_cpp_projects/apollo/src/hook.h
 fdmanager.h
 /mnt/h/workSpace/c_cpp_projects/apollo/src/fdmanager.h
+address.h
+/mnt/h/workSpace/c_cpp_projects/apollo/src/address.h
 
 /mnt/h/workSpace/c_cpp_projects/apollo/src/config.h
 memory

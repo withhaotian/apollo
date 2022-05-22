@@ -60,35 +60,22 @@ include CMakeFiles/apollo.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/apollo.dir/flags.make
 
-CMakeFiles/apollo.dir/src/log.cc.o: CMakeFiles/apollo.dir/flags.make
-CMakeFiles/apollo.dir/src/log.cc.o: src/log.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/apollo.dir/src/log.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/log.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/log.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/log.cc
+CMakeFiles/apollo.dir/src/address.cc.o: CMakeFiles/apollo.dir/flags.make
+CMakeFiles/apollo.dir/src/address.cc.o: src/address.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/apollo.dir/src/address.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/address.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/address.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/address.cc
 
-CMakeFiles/apollo.dir/src/log.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/log.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/log.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/log.cc > CMakeFiles/apollo.dir/src/log.cc.i
+CMakeFiles/apollo.dir/src/address.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/address.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/address.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/address.cc > CMakeFiles/apollo.dir/src/address.cc.i
 
-CMakeFiles/apollo.dir/src/log.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/log.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/log.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/log.cc -o CMakeFiles/apollo.dir/src/log.cc.s
-
-CMakeFiles/apollo.dir/src/util.cc.o: CMakeFiles/apollo.dir/flags.make
-CMakeFiles/apollo.dir/src/util.cc.o: src/util.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/apollo.dir/src/util.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/util.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/util.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/util.cc
-
-CMakeFiles/apollo.dir/src/util.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/util.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/util.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/util.cc > CMakeFiles/apollo.dir/src/util.cc.i
-
-CMakeFiles/apollo.dir/src/util.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/util.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/util.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/util.cc -o CMakeFiles/apollo.dir/src/util.cc.s
+CMakeFiles/apollo.dir/src/address.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/address.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/address.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/address.cc -o CMakeFiles/apollo.dir/src/address.cc.s
 
 CMakeFiles/apollo.dir/src/config.cc.o: CMakeFiles/apollo.dir/flags.make
 CMakeFiles/apollo.dir/src/config.cc.o: src/config.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/apollo.dir/src/config.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/apollo.dir/src/config.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/config.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/config.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/config.cc
 
 CMakeFiles/apollo.dir/src/config.cc.i: cmake_force
@@ -99,100 +86,9 @@ CMakeFiles/apollo.dir/src/config.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/config.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/config.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/config.cc -o CMakeFiles/apollo.dir/src/config.cc.s
 
-CMakeFiles/apollo.dir/src/thread.cc.o: CMakeFiles/apollo.dir/flags.make
-CMakeFiles/apollo.dir/src/thread.cc.o: src/thread.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/apollo.dir/src/thread.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/thread.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/thread.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/thread.cc
-
-CMakeFiles/apollo.dir/src/thread.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/thread.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/thread.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/thread.cc > CMakeFiles/apollo.dir/src/thread.cc.i
-
-CMakeFiles/apollo.dir/src/thread.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/thread.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/thread.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/thread.cc -o CMakeFiles/apollo.dir/src/thread.cc.s
-
-CMakeFiles/apollo.dir/src/fiber.cc.o: CMakeFiles/apollo.dir/flags.make
-CMakeFiles/apollo.dir/src/fiber.cc.o: src/fiber.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/apollo.dir/src/fiber.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/fiber.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/fiber.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/fiber.cc
-
-CMakeFiles/apollo.dir/src/fiber.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/fiber.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/fiber.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/fiber.cc > CMakeFiles/apollo.dir/src/fiber.cc.i
-
-CMakeFiles/apollo.dir/src/fiber.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/fiber.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/fiber.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/fiber.cc -o CMakeFiles/apollo.dir/src/fiber.cc.s
-
-CMakeFiles/apollo.dir/src/scheduler.cc.o: CMakeFiles/apollo.dir/flags.make
-CMakeFiles/apollo.dir/src/scheduler.cc.o: src/scheduler.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/apollo.dir/src/scheduler.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/scheduler.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/scheduler.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/scheduler.cc
-
-CMakeFiles/apollo.dir/src/scheduler.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/scheduler.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/scheduler.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/scheduler.cc > CMakeFiles/apollo.dir/src/scheduler.cc.i
-
-CMakeFiles/apollo.dir/src/scheduler.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/scheduler.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/scheduler.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/scheduler.cc -o CMakeFiles/apollo.dir/src/scheduler.cc.s
-
-CMakeFiles/apollo.dir/src/mutex.cc.o: CMakeFiles/apollo.dir/flags.make
-CMakeFiles/apollo.dir/src/mutex.cc.o: src/mutex.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/apollo.dir/src/mutex.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/mutex.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/mutex.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/mutex.cc
-
-CMakeFiles/apollo.dir/src/mutex.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/mutex.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/mutex.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/mutex.cc > CMakeFiles/apollo.dir/src/mutex.cc.i
-
-CMakeFiles/apollo.dir/src/mutex.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/mutex.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/mutex.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/mutex.cc -o CMakeFiles/apollo.dir/src/mutex.cc.s
-
-CMakeFiles/apollo.dir/src/iomanager.cc.o: CMakeFiles/apollo.dir/flags.make
-CMakeFiles/apollo.dir/src/iomanager.cc.o: src/iomanager.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/apollo.dir/src/iomanager.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/iomanager.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/iomanager.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/iomanager.cc
-
-CMakeFiles/apollo.dir/src/iomanager.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/iomanager.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/iomanager.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/iomanager.cc > CMakeFiles/apollo.dir/src/iomanager.cc.i
-
-CMakeFiles/apollo.dir/src/iomanager.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/iomanager.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/iomanager.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/iomanager.cc -o CMakeFiles/apollo.dir/src/iomanager.cc.s
-
-CMakeFiles/apollo.dir/src/timer.cc.o: CMakeFiles/apollo.dir/flags.make
-CMakeFiles/apollo.dir/src/timer.cc.o: src/timer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/apollo.dir/src/timer.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/timer.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/timer.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/timer.cc
-
-CMakeFiles/apollo.dir/src/timer.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/timer.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/timer.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/timer.cc > CMakeFiles/apollo.dir/src/timer.cc.i
-
-CMakeFiles/apollo.dir/src/timer.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/timer.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/timer.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/timer.cc -o CMakeFiles/apollo.dir/src/timer.cc.s
-
-CMakeFiles/apollo.dir/src/hook.cc.o: CMakeFiles/apollo.dir/flags.make
-CMakeFiles/apollo.dir/src/hook.cc.o: src/hook.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/apollo.dir/src/hook.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/hook.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/hook.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/hook.cc
-
-CMakeFiles/apollo.dir/src/hook.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/hook.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/hook.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/hook.cc > CMakeFiles/apollo.dir/src/hook.cc.i
-
-CMakeFiles/apollo.dir/src/hook.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/hook.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/hook.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/hook.cc -o CMakeFiles/apollo.dir/src/hook.cc.s
-
 CMakeFiles/apollo.dir/src/fdmanager.cc.o: CMakeFiles/apollo.dir/flags.make
 CMakeFiles/apollo.dir/src/fdmanager.cc.o: src/fdmanager.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/apollo.dir/src/fdmanager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/apollo.dir/src/fdmanager.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/fdmanager.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/fdmanager.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/fdmanager.cc
 
 CMakeFiles/apollo.dir/src/fdmanager.cc.i: cmake_force
@@ -203,37 +99,156 @@ CMakeFiles/apollo.dir/src/fdmanager.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/fdmanager.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/fdmanager.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/fdmanager.cc -o CMakeFiles/apollo.dir/src/fdmanager.cc.s
 
+CMakeFiles/apollo.dir/src/fiber.cc.o: CMakeFiles/apollo.dir/flags.make
+CMakeFiles/apollo.dir/src/fiber.cc.o: src/fiber.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/apollo.dir/src/fiber.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/fiber.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/fiber.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/fiber.cc
+
+CMakeFiles/apollo.dir/src/fiber.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/fiber.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/fiber.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/fiber.cc > CMakeFiles/apollo.dir/src/fiber.cc.i
+
+CMakeFiles/apollo.dir/src/fiber.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/fiber.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/fiber.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/fiber.cc -o CMakeFiles/apollo.dir/src/fiber.cc.s
+
+CMakeFiles/apollo.dir/src/hook.cc.o: CMakeFiles/apollo.dir/flags.make
+CMakeFiles/apollo.dir/src/hook.cc.o: src/hook.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/apollo.dir/src/hook.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/hook.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/hook.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/hook.cc
+
+CMakeFiles/apollo.dir/src/hook.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/hook.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/hook.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/hook.cc > CMakeFiles/apollo.dir/src/hook.cc.i
+
+CMakeFiles/apollo.dir/src/hook.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/hook.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/hook.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/hook.cc -o CMakeFiles/apollo.dir/src/hook.cc.s
+
+CMakeFiles/apollo.dir/src/iomanager.cc.o: CMakeFiles/apollo.dir/flags.make
+CMakeFiles/apollo.dir/src/iomanager.cc.o: src/iomanager.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/apollo.dir/src/iomanager.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/iomanager.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/iomanager.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/iomanager.cc
+
+CMakeFiles/apollo.dir/src/iomanager.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/iomanager.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/iomanager.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/iomanager.cc > CMakeFiles/apollo.dir/src/iomanager.cc.i
+
+CMakeFiles/apollo.dir/src/iomanager.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/iomanager.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/iomanager.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/iomanager.cc -o CMakeFiles/apollo.dir/src/iomanager.cc.s
+
+CMakeFiles/apollo.dir/src/log.cc.o: CMakeFiles/apollo.dir/flags.make
+CMakeFiles/apollo.dir/src/log.cc.o: src/log.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/apollo.dir/src/log.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/log.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/log.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/log.cc
+
+CMakeFiles/apollo.dir/src/log.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/log.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/log.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/log.cc > CMakeFiles/apollo.dir/src/log.cc.i
+
+CMakeFiles/apollo.dir/src/log.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/log.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/log.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/log.cc -o CMakeFiles/apollo.dir/src/log.cc.s
+
+CMakeFiles/apollo.dir/src/mutex.cc.o: CMakeFiles/apollo.dir/flags.make
+CMakeFiles/apollo.dir/src/mutex.cc.o: src/mutex.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/apollo.dir/src/mutex.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/mutex.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/mutex.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/mutex.cc
+
+CMakeFiles/apollo.dir/src/mutex.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/mutex.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/mutex.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/mutex.cc > CMakeFiles/apollo.dir/src/mutex.cc.i
+
+CMakeFiles/apollo.dir/src/mutex.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/mutex.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/mutex.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/mutex.cc -o CMakeFiles/apollo.dir/src/mutex.cc.s
+
+CMakeFiles/apollo.dir/src/scheduler.cc.o: CMakeFiles/apollo.dir/flags.make
+CMakeFiles/apollo.dir/src/scheduler.cc.o: src/scheduler.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/apollo.dir/src/scheduler.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/scheduler.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/scheduler.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/scheduler.cc
+
+CMakeFiles/apollo.dir/src/scheduler.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/scheduler.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/scheduler.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/scheduler.cc > CMakeFiles/apollo.dir/src/scheduler.cc.i
+
+CMakeFiles/apollo.dir/src/scheduler.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/scheduler.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/scheduler.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/scheduler.cc -o CMakeFiles/apollo.dir/src/scheduler.cc.s
+
+CMakeFiles/apollo.dir/src/thread.cc.o: CMakeFiles/apollo.dir/flags.make
+CMakeFiles/apollo.dir/src/thread.cc.o: src/thread.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/apollo.dir/src/thread.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/thread.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/thread.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/thread.cc
+
+CMakeFiles/apollo.dir/src/thread.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/thread.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/thread.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/thread.cc > CMakeFiles/apollo.dir/src/thread.cc.i
+
+CMakeFiles/apollo.dir/src/thread.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/thread.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/thread.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/thread.cc -o CMakeFiles/apollo.dir/src/thread.cc.s
+
+CMakeFiles/apollo.dir/src/timer.cc.o: CMakeFiles/apollo.dir/flags.make
+CMakeFiles/apollo.dir/src/timer.cc.o: src/timer.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/apollo.dir/src/timer.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/timer.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/timer.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/timer.cc
+
+CMakeFiles/apollo.dir/src/timer.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/timer.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/timer.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/timer.cc > CMakeFiles/apollo.dir/src/timer.cc.i
+
+CMakeFiles/apollo.dir/src/timer.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/timer.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/timer.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/timer.cc -o CMakeFiles/apollo.dir/src/timer.cc.s
+
+CMakeFiles/apollo.dir/src/util.cc.o: CMakeFiles/apollo.dir/flags.make
+CMakeFiles/apollo.dir/src/util.cc.o: src/util.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/apollo.dir/src/util.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"src/util.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/apollo.dir/src/util.cc.o -c /mnt/h/workSpace/c_cpp_projects/apollo/src/util.cc
+
+CMakeFiles/apollo.dir/src/util.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/apollo.dir/src/util.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/util.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/h/workSpace/c_cpp_projects/apollo/src/util.cc > CMakeFiles/apollo.dir/src/util.cc.i
+
+CMakeFiles/apollo.dir/src/util.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/apollo.dir/src/util.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"src/util.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/h/workSpace/c_cpp_projects/apollo/src/util.cc -o CMakeFiles/apollo.dir/src/util.cc.s
+
 # Object files for target apollo
 apollo_OBJECTS = \
-"CMakeFiles/apollo.dir/src/log.cc.o" \
-"CMakeFiles/apollo.dir/src/util.cc.o" \
+"CMakeFiles/apollo.dir/src/address.cc.o" \
 "CMakeFiles/apollo.dir/src/config.cc.o" \
-"CMakeFiles/apollo.dir/src/thread.cc.o" \
+"CMakeFiles/apollo.dir/src/fdmanager.cc.o" \
 "CMakeFiles/apollo.dir/src/fiber.cc.o" \
-"CMakeFiles/apollo.dir/src/scheduler.cc.o" \
-"CMakeFiles/apollo.dir/src/mutex.cc.o" \
-"CMakeFiles/apollo.dir/src/iomanager.cc.o" \
-"CMakeFiles/apollo.dir/src/timer.cc.o" \
 "CMakeFiles/apollo.dir/src/hook.cc.o" \
-"CMakeFiles/apollo.dir/src/fdmanager.cc.o"
+"CMakeFiles/apollo.dir/src/iomanager.cc.o" \
+"CMakeFiles/apollo.dir/src/log.cc.o" \
+"CMakeFiles/apollo.dir/src/mutex.cc.o" \
+"CMakeFiles/apollo.dir/src/scheduler.cc.o" \
+"CMakeFiles/apollo.dir/src/thread.cc.o" \
+"CMakeFiles/apollo.dir/src/timer.cc.o" \
+"CMakeFiles/apollo.dir/src/util.cc.o"
 
 # External object files for target apollo
 apollo_EXTERNAL_OBJECTS =
 
-lib/libapollo.so: CMakeFiles/apollo.dir/src/log.cc.o
-lib/libapollo.so: CMakeFiles/apollo.dir/src/util.cc.o
+lib/libapollo.so: CMakeFiles/apollo.dir/src/address.cc.o
 lib/libapollo.so: CMakeFiles/apollo.dir/src/config.cc.o
-lib/libapollo.so: CMakeFiles/apollo.dir/src/thread.cc.o
-lib/libapollo.so: CMakeFiles/apollo.dir/src/fiber.cc.o
-lib/libapollo.so: CMakeFiles/apollo.dir/src/scheduler.cc.o
-lib/libapollo.so: CMakeFiles/apollo.dir/src/mutex.cc.o
-lib/libapollo.so: CMakeFiles/apollo.dir/src/iomanager.cc.o
-lib/libapollo.so: CMakeFiles/apollo.dir/src/timer.cc.o
-lib/libapollo.so: CMakeFiles/apollo.dir/src/hook.cc.o
 lib/libapollo.so: CMakeFiles/apollo.dir/src/fdmanager.cc.o
+lib/libapollo.so: CMakeFiles/apollo.dir/src/fiber.cc.o
+lib/libapollo.so: CMakeFiles/apollo.dir/src/hook.cc.o
+lib/libapollo.so: CMakeFiles/apollo.dir/src/iomanager.cc.o
+lib/libapollo.so: CMakeFiles/apollo.dir/src/log.cc.o
+lib/libapollo.so: CMakeFiles/apollo.dir/src/mutex.cc.o
+lib/libapollo.so: CMakeFiles/apollo.dir/src/scheduler.cc.o
+lib/libapollo.so: CMakeFiles/apollo.dir/src/thread.cc.o
+lib/libapollo.so: CMakeFiles/apollo.dir/src/timer.cc.o
+lib/libapollo.so: CMakeFiles/apollo.dir/src/util.cc.o
 lib/libapollo.so: CMakeFiles/apollo.dir/build.make
 lib/libapollo.so: CMakeFiles/apollo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX shared library lib/libapollo.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/h/workSpace/c_cpp_projects/apollo/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX shared library lib/libapollo.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/apollo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

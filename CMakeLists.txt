@@ -11,17 +11,18 @@ include_directories(.)
 link_directories(/apps/sylar/lib)
 
 set(LIB_SRC
-	src/log.cc
-	src/util.cc
+	src/address.cc
 	src/config.cc
-	src/thread.cc
-	src/fiber.cc
-	src/scheduler.cc
-	src/mutex.cc
-	src/iomanager.cc
-	src/timer.cc
-	src/hook.cc
 	src/fdmanager.cc
+	src/fiber.cc
+	src/hook.cc
+	src/iomanager.cc
+	src/log.cc
+	src/mutex.cc
+	src/scheduler.cc
+	src/thread.cc
+	src/timer.cc
+	src/util.cc
 )
 
 add_library(apollo SHARED ${LIB_SRC})
@@ -79,6 +80,11 @@ add_executable(test_hook tests/test_hook.cc)
 force_redefine_file_macro_for_sources(test_hook)  # __FILE__
 add_dependencies(test_hook apollo)
 target_link_libraries(test_hook ${LIBS})
+
+add_executable(test_address tests/test_address.cc)
+force_redefine_file_macro_for_sources(test_address)  # __FILE__
+add_dependencies(test_address apollo)
+target_link_libraries(test_address ${LIBS})
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

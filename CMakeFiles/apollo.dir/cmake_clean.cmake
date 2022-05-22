@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/apollo.dir/src/address.cc.o"
   "CMakeFiles/apollo.dir/src/config.cc.o"
   "CMakeFiles/apollo.dir/src/fdmanager.cc.o"
   "CMakeFiles/apollo.dir/src/fiber.cc.o"

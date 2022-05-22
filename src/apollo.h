@@ -26,5 +26,6 @@
 #include "timer.h"
 #include "hook.h"
 #include "fdmanager.h"
+#include "address.h"
 
 #endif
